@@ -1,0 +1,1488 @@
+{
+  "SaveName": "the project",
+  "GameMode": "Custom UI Example",
+  "Gravity": 0.5,
+  "PlayArea": 0.5,
+  "Date": "7/3/2019 3:10:57 AM",
+  "Table": "Table_RPG",
+  "Sky": "Sky_Field",
+  "Note": "{-1.278,0.1,-0.495}",
+  "Rules": "",
+  "XmlUI": "<!-- Welcome popup -->\r\n\r\n<Panel\r\n    id=\"Scoreboard\"\r\n    height=\"400\"\r\n    width=\"470\"\r\n    color=\"rgba(0,0,0,0.5)\"\r\n    rectAlignment=\"UpperRight\"\r\n    offsetXY=\"-160 0\"\r\n    hideAnimation=\"FadeOut\"\r\n    showAnimation=\"FadeIn\"\r\n    animationDuration=\"0.9\"\r\n    allowDragging=\"true\"\r\n    returnToOriginalPositionWhenReleased=\"false\"\r\n    >\r\n    <InputField\r\n        id=\"Scoreboard-StartingMoneyInput\"\r\n        text=\"$\"\r\n        >\r\n    </InputField>\r\n    <Text\r\n        id=\"Scoreboard-text\"\r\n        text=\"Test\"\r\n        color=\"red\"\r\n        outline=\"black\"\r\n        outlineSize=\"2 2\"\r\n        alignment=\"LowerCenter\"\r\n        fontSize=\"50\"\r\n        >\r\n    </Text>\r\n</Panel>\r\n<Panel\r\n    id=\"scoreboard-open-close\"\r\n    height=\"20\"\r\n    width=\"160\"\r\n    color=\"rgba(0,0,0,1)\"\r\n    rectAlignment=\"UpperRight\"\r\n    offsetXY=\"-310 0\"\r\n    hideAnimation=\"FadeOut\"\r\n    animationDuration=\"0.5\"\r\n    allowDragging=\"true\"\r\n    returnToOriginalPositionWhenReleased=\"false\"\r\n    >\r\n    <Text\r\n        text=\"SCOREBOARD\"\r\n        color=\"white\"\r\n        outline=\"black\"\r\n        outlineSize=\"2 2\"\r\n        alignment=\"Center\"\r\n        fontSize=\"15\"\r\n        >\r\n    </Text>\r\n    <Button\r\n        onClick=\"hideScoreboard\"\r\n        height=\"20\"\r\n        width=\"20\"\r\n        color=\"rgba(0,0,0,0.7)\"\r\n        text=\"&#8896;\"\r\n        textColor=\"rgba(1,1,1,0.9)\"\r\n        fontStyle=\"Bold\"\r\n        fontSize=\"15\"\r\n        rectAlignment=\"UpperRight\"\r\n        >\r\n    </Button>\r\n    <Button\r\n        onClick=\"showScoreboard\"\r\n        height=\"20\"\r\n        width=\"20\"\r\n        color=\"rgba(0,0,0,0.7)\"\r\n        text=\"&#8897;\"\r\n        textColor=\"rgba(1,1,1,0.9)\"\r\n        fontStyle=\"Bold\"\r\n        fontSize=\"15\"\r\n        rectAlignment=\"UpperLeft\"\r\n        >\r\n    </Button>\r\n</Panel>\r\n<Panel\r\n    id=\"test-panel\"\r\n    height=\"20\"\r\n    width=\"160\"\r\n    color=\"rgba(0,0,0,1)\"\r\n    rectAlignment=\"Center\"\r\n    offsetXY=\"0 0\"\r\n    hideAnimation=\"FadeOut\"\r\n    animationDuration=\"0.5\"\r\n    allowDragging=\"true\"\r\n    returnToOriginalPositionWhenReleased=\"false\"\r\n    >\r\n    <Button\r\n        onClick=\"testFunc\"\r\n        height=\"20\"\r\n        width=\"20\"\r\n        color=\"rgba(0,0,0,0.7)\"\r\n        text=\"&#8897;\"\r\n        textColor=\"rgba(1,1,1,0.9)\"\r\n        fontStyle=\"Bold\"\r\n        fontSize=\"15\"\r\n        rectAlignment=\"UpperLeft\"\r\n        >\r\n    </Button>\r\n</Panel>\r\n<TableLayout class=\"noCellBackground\" height=\"512\" width=\"512\" rectAlignment=\"MiddleCenter\" offsetXY=\"0 0\">\r\n<Row class=\"viewport\">\r\n  <Cell dontUseTableCellBackground=\"true\">\r\n      <TableLayout cellPadding=\"7\" padding=\"20\" cellSpacing=\"5\" cellBackgroundImage=\"Sprites/Outline_Sharp\" cellBackgroundColor=\"rgba(1,1,0,0.125)\" autoCalculateHeight=\"1\" columnWidths=\"180 0\">\r\n        <Row id=\"test-row\" preferredHeight=\"44\">\r\n          <Cell>\r\n            <Text class=\"h3\">Input Field1</Text>\r\n          </Cell>\r\n          <Cell>\r\n            <InputField />\r\n          </Cell>\r\n        </Row>\r\n      </TableLayout>\r\n  </Cell>\r\n</Row>\r\n</TableLayout>\r\n<TableLayout class=\"noCellBackground\" height=\"512\" width=\"512\" rectAlignment=\"MiddleCenter\" offsetXY=\"0 0\">\r\n<Row class=\"viewport\">\r\n  <Cell dontUseTableCellBackground=\"true\">\r\n      <TableLayout cellPadding=\"7\" padding=\"20\" cellSpacing=\"5\" cellBackgroundImage=\"Sprites/Outline_Sharp\" cellBackgroundColor=\"rgba(1,1,0,0.125)\" autoCalculateHeight=\"1\" columnWidths=\"180 0\">\r\n\r\n        <Row class=\"sectionHeaderRow\">\r\n          <Cell columnSpan=\"2\" dontUseTableCellBackground=\"1\">\r\n            <Text class=\"h2\" alignment=\"MiddleCenter\">Input Elements</Text>\r\n          </Cell>\r\n        </Row>\r\n        <Row preferredHeight=\"44\">\r\n          <Cell>\r\n            <Text class=\"h3\">Input Field2</Text>\r\n          </Cell>\r\n          <Cell>\r\n            <InputField />\r\n          </Cell>\r\n        </Row>\r\n      </TableLayout>\r\n  </Cell>\r\n</Row>\r\n</TableLayout>\r\n",
+  "CustomUIAssets": [
+    {
+      "Name": "TTSLogo",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/936064212973557569/9D9F00D3BAEB906B3393649C931267AB6F24D915/"
+    }
+  ],
+  "LuaScript": " function onLoad()\n\nend\n\nstartingMoney = 3200\nbankP1 = startingMoney\nbankP2 = startingMoney\n\nfunction nothing()\n    object1 = getObjectFromGUID('341c7c')\n    object1.call('start')\nend\n\nfunction moneyPayPlayer(pA, pB)\n    --ref pA bank\n    --ref PB bank\n    --pA enters ammount to pay pB\n    --PA confirms payment\n    --calculate transaction\n    --update banks\nend\n\nfunction moneyRequest(pA, pB)\n    --ref pA bank\n    --ref PB bank\n    --pA enters ammount to request from pB\n    --pB confirms request payment\n    --calculate transaction\n    --update banks\nend\n\nfunction moneyPayAll(pA)\n    --ref pA bank\n    --ref all other players bank except pA\n    --pA enter ammount x1\n    --pA confirms payment X to each player / total payment\n    --calculate transaction\n    --update banks\nend\n\nfunction moneyBuy()\n    --ref pA bank\n    --??? ref item price ???\n    --or pA enter ammount to charge to pA bank\n    --calculate charge to pA bank\n    --update pA bank only\nend\n\nfunction moneyPayPool(a)\n    --ref pA bank\n    --??? ref item price ???\n    --or pA enter ammount to charge to pA bank\n    --calculate charge to pA bank\n    --update pA bank only\nend\n\nfunction moneyClaimPool()\n    --ref pA bank\n    --ref Pool bank\n    --pA confirms claim\n    --calculate transaction\n    --update banks\nend\n\n\nfunction testFunc()\n    UI.hide(\"test-row\")\nend\n\n--Hides the Scoreboard\nfunction hideScoreboard()\n    UI.hide(\"Scoreboard\")\nend\n\nfunction showScoreboard()\n    UI.show(\"Scoreboard\")\nend\n\n--[=====[\nfunction announcePlayers()\n    --this uses the existing textTools GUID to get Object ref for each\n    textTools_GUID={\"122fb8\", \"9421ac\", \"8cbee2\", \"ba516b\",\n                    \"bf78b6\", \"562124\", \"9c997c\", \"e80c0c\"}\n    textTools = {}\n    for _, tool_GUID in pairs(textTools_GUID) do\n        textTools[_] = getObjectFromGUID(tool_GUID)\n    end\n\n--this gets only seated players into a list\n--then uses player ref to update texttool accordingly\n    players = getSeatedPlayers();\n    playerCount = #players\n    for _, playerReference in ipairs(players) do\n            textTools[_].setValue(Player[players[_]].steam_name)\n            textTools[_].TextTool.setFontColor(Player[players[_]].color)\n    end\nend\n--]=====]\n",
+  "LuaScriptState": "{\"rt\":true}",
+  "Grid": {
+    "Type": 0,
+    "Lines": false,
+    "Color": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0
+    },
+    "Opacity": 0.75,
+    "ThickLines": false,
+    "Snapping": false,
+    "Offset": false,
+    "BothSnapping": false,
+    "xSize": 2.0,
+    "ySize": 2.0,
+    "PosOffset": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    }
+  },
+  "Lighting": {
+    "LightIntensity": 0.54,
+    "LightColor": {
+      "r": 1.0,
+      "g": 0.9804,
+      "b": 0.8902
+    },
+    "AmbientIntensity": 1.3,
+    "AmbientType": 0,
+    "AmbientSkyColor": {
+      "r": 0.5,
+      "g": 0.5,
+      "b": 0.5
+    },
+    "AmbientEquatorColor": {
+      "r": 0.5,
+      "g": 0.5,
+      "b": 0.5
+    },
+    "AmbientGroundColor": {
+      "r": 0.5,
+      "g": 0.5,
+      "b": 0.5
+    },
+    "ReflectionIntensity": 1.0,
+    "LutIndex": 0,
+    "LutContribution": 1.0
+  },
+  "Hands": {
+    "Enable": true,
+    "DisableUnused": false,
+    "Hiding": 0,
+    "HandTransforms": [
+      {
+        "Color": "Red",
+        "Transform": {
+          "posX": -15.1108065,
+          "posY": 5.37079763,
+          "posZ": -20.1076221,
+          "rotX": 0.0,
+          "rotY": 0.0,
+          "rotZ": 0.0,
+          "scaleX": 11.7827139,
+          "scaleY": 9.174497,
+          "scaleZ": 4.87123871
+        }
+      },
+      {
+        "Color": "Yellow",
+        "Transform": {
+          "posX": -30.2150211,
+          "posY": 5.37079763,
+          "posZ": 10.17524,
+          "rotX": 0.0,
+          "rotY": 90.0,
+          "rotZ": 0.0,
+          "scaleX": 11.7280092,
+          "scaleY": 9.174497,
+          "scaleZ": 4.9607935
+        }
+      },
+      {
+        "Color": "Purple",
+        "Transform": {
+          "posX": 30.25128,
+          "posY": 5.37079763,
+          "posZ": 9.59069252,
+          "rotX": 0.0,
+          "rotY": 270.0,
+          "rotZ": 0.0,
+          "scaleX": 11.7280035,
+          "scaleY": 9.174497,
+          "scaleZ": 4.9607935
+        }
+      },
+      {
+        "Color": "Blue",
+        "Transform": {
+          "posX": 15.4749184,
+          "posY": 5.37079763,
+          "posZ": 19.8365288,
+          "rotX": 0.0,
+          "rotY": 179.8,
+          "rotZ": 0.0,
+          "scaleX": 11.8778467,
+          "scaleY": 9.174497,
+          "scaleZ": 4.92012644
+        }
+      },
+      {
+        "Color": "White",
+        "Transform": {
+          "posX": 15.1961479,
+          "posY": 5.37079763,
+          "posZ": -20.1400986,
+          "rotX": 0.0,
+          "rotY": 0.0,
+          "rotZ": 0.0,
+          "scaleX": 11.7827024,
+          "scaleY": 9.17449951,
+          "scaleZ": 4.87123871
+        }
+      },
+      {
+        "Color": "Green",
+        "Transform": {
+          "posX": -15.1927767,
+          "posY": 5.37079763,
+          "posZ": 19.787817,
+          "rotX": 0.0,
+          "rotY": 180.0,
+          "rotZ": 0.0,
+          "scaleX": 11.7827024,
+          "scaleY": 9.174497,
+          "scaleZ": 4.87123871
+        }
+      },
+      {
+        "Color": "Pink",
+        "Transform": {
+          "posX": 30.10358,
+          "posY": 5.37079763,
+          "posZ": -8.449126,
+          "rotX": 0.0,
+          "rotY": 270.0,
+          "rotZ": 0.0,
+          "scaleX": 11.728,
+          "scaleY": 9.174497,
+          "scaleZ": 4.9607935
+        }
+      },
+      {
+        "Color": "Orange",
+        "Transform": {
+          "posX": -30.247818,
+          "posY": 5.37079763,
+          "posZ": -8.822588,
+          "rotX": 0.0,
+          "rotY": 90.0,
+          "rotZ": 0.0,
+          "scaleX": 11.728013,
+          "scaleY": 9.174497,
+          "scaleZ": 4.9607935
+        }
+      }
+    ]
+  },
+  "Turns": {
+    "Enable": false,
+    "Type": 0,
+    "TurnOrder": [],
+    "Reverse": false,
+    "SkipEmpty": false,
+    "DisableInteractions": false,
+    "PassTurns": true,
+    "TurnColor": ""
+  },
+  "VectorLines": [
+    {
+      "points3": [
+        {
+          "x": 17.001482,
+          "y": 0.9711354,
+          "z": 1.68818271
+        },
+        {
+          "x": 23.5268688,
+          "y": 0.971135139,
+          "z": 1.68112385
+        },
+        {
+          "x": 23.517601,
+          "y": 0.9711342,
+          "z": -6.88674259
+        },
+        {
+          "x": 16.9922142,
+          "y": 0.9711342,
+          "z": -6.87968349
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "thickness": 0.1,
+      "loop": true
+    },
+    {
+      "points3": [
+        {
+          "x": -6.791662,
+          "y": 0.971133232,
+          "z": -12.3725548
+        },
+        {
+          "x": -6.791662,
+          "y": 0.971133232,
+          "z": -12.3725548
+        },
+        {
+          "x": -6.791662,
+          "y": 0.971133232,
+          "z": -12.3725548
+        },
+        {
+          "x": -6.791662,
+          "y": 0.971133232,
+          "z": -12.3725548
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "thickness": 0.1,
+      "loop": true
+    },
+    {
+      "points3": [
+        {
+          "x": 20.4030952,
+          "y": 0.9711342,
+          "z": -9.897056
+        },
+        {
+          "x": 20.4030952,
+          "y": 0.9711342,
+          "z": -9.897056
+        },
+        {
+          "x": 20.4030952,
+          "y": 0.9711342,
+          "z": -9.897056
+        },
+        {
+          "x": 20.4030952,
+          "y": 0.9711342,
+          "z": -9.897056
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "thickness": 0.1,
+      "loop": true
+    },
+    {
+      "points3": [
+        {
+          "x": 14.3030081,
+          "y": 0.9711356,
+          "z": 3.720791
+        },
+        {
+          "x": 14.3030081,
+          "y": 0.9711356,
+          "z": 3.720791
+        },
+        {
+          "x": 14.3030081,
+          "y": 0.9711356,
+          "z": 3.720791
+        },
+        {
+          "x": 14.3030081,
+          "y": 0.9711356,
+          "z": 3.720791
+        }
+      ],
+      "color": {
+        "r": 0.856,
+        "g": 0.1,
+        "b": 0.094
+      },
+      "thickness": 0.1,
+      "loop": true
+    }
+  ],
+  "ObjectStates": [
+    {
+      "Name": "BlockSquare",
+      "Transform": {
+        "posX": 25.3034458,
+        "posY": 3.460001,
+        "posZ": 13.6643753,
+        "rotX": -1.27130733E-07,
+        "rotY": 14.506361,
+        "rotZ": -7.04908359E-07,
+        "scaleX": 4.99999857,
+        "scaleY": 4.99999857,
+        "scaleZ": 4.99999857
+      },
+      "Nickname": "Info Cube by MrStump",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": false,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "LuaScript": "--INFO CUBE by MrStump\r\n\r\n--[[If you wish to disable any Custom Object types from being displayed,\r\n    you can do so in function getCustom().\r\n        Looks for: <COMMENT OUT AS NEEDED>\r\n        Beneath it is a long series of if statements.\r\n        Each has a name for the custom object type it adds.\r\n        Comment out (use -- at the beginning of the line) any you do not want. ]]\r\n\r\n--This line is for if you want to add an additional position type.\r\n--It gives the the X/Y/Z of the relative position to another object\r\nrelativeEntGUID = \"\"\r\n--If you aren't sure what that is, leave it as \"\"\r\n\r\n\r\n--Do not edit below (unless you're scripting)\r\n\r\n--Save function, to remember settings\r\nfunction onSave()\r\n    local data_to_save = {rd=roundingDecimal, ioool=infoOnOrOffList}\r\n    saved_data = JSON.encode(data_to_save)\r\n    return saved_data\r\nend\r\n\r\n--Runs on load\r\nfunction onload(saved_data)\r\n    if saved_data ~= \"\" then\r\n        --Set up information off of loaded_data\r\n        local loaded_data = JSON.decode(saved_data)\r\n        roundingDecimal = loaded_data.rd\r\n        infoOnOrOffList = loaded_data.ioool\r\n    else\r\n        --Set up information for if there is no saved\r\n        --How many decimals we round to (default)\r\n        roundingDecimal = 3\r\n        --True means show, false means hide (defaults)\r\n        infoOnOrOffList = {\r\n            position=true,\r\n            rotation=true,\r\n            scale=false,\r\n            tint=true,\r\n            tag=false,\r\n            custom=false,\r\n            show_keys=true,\r\n            double_space=true\r\n        }\r\n    end\r\n\r\n    --Spawn buttons\r\n    createAllButtons()\r\nend\r\n\r\n\r\n\r\n--Update, watching for change and triggering fetch\r\n\r\n\r\n\r\n--Runs constantly, watching for GUID to be entered into description\r\nfunction update()\r\n    if self.getDescription() ~= nil then\r\n        targetEnt = getObjectFromGUID(self.getDescription())\r\n        --Check if what was entered was a valid GUID or not\r\n        if targetEnt then\r\n            self.editButton({index=12, label=targetEnt.getGUID()})\r\n            targetEnt.highlightOn({1,0,0}, 3)\r\n            --This sends out to different functions to combine desired elements\r\n            local noteString = \"\"\r\n            if infoOnOrOffList.position==true then\r\n                noteString = noteString .. getXYZorRGB(\"Position\")\r\n                if relativeEntGUID~=\"\" and getObjectFromGUID(relativeEntGUID)~= nil then\r\n                    noteString = noteString .. getRelativeXYZ(\"Position\")\r\n                end\r\n                if infoOnOrOffList.double_space==true then noteString = noteString .. \"\\n\" end\r\n            end\r\n            if infoOnOrOffList.rotation==true then\r\n                noteString = noteString .. getXYZorRGB(\"Rotation\")\r\n                if infoOnOrOffList.double_space==true then noteString = noteString .. \"\\n\" end\r\n            end\r\n            if infoOnOrOffList.scale==true then\r\n                noteString = noteString .. getXYZorRGB(\"Scale\")\r\n                if infoOnOrOffList.double_space==true then noteString = noteString .. \"\\n\" end\r\n            end\r\n            if infoOnOrOffList.tint==true then\r\n                noteString = noteString .. getXYZorRGB(\"Tint\")\r\n                noteString = noteString .. getHexofTint()\r\n                if infoOnOrOffList.double_space==true then noteString = noteString .. \"\\n\" end\r\n            end\r\n            if infoOnOrOffList.tag==true then\r\n                noteString = noteString .. getTag()\r\n                if infoOnOrOffList.double_space==true then noteString = noteString .. \"\\n\" end\r\n            end\r\n            if infoOnOrOffList.custom==true then\r\n                noteString = noteString .. getCustom()\r\n                if infoOnOrOffList.double_space==true then noteString = noteString .. \"\\n\" end\r\n            end\r\n            --This applies those elements to the notes section\r\n            --The actual strings themselkves are generated below\r\n            setNotes(noteString)\r\n        end\r\n        --Clears description after anything is submitted into it\r\n        self.setDescription(\"\")\r\n    end\r\nend\r\n\r\n\r\n\r\n--Fetch strings, returns requested data to above sections\r\n\r\n\r\n\r\n--Returns strings for Position, Rotation, Scale or Tint\r\nfunction getXYZorRGB(type)\r\n    local key = {}\r\n    if type==\"Position\" then\r\n        key = targetEnt.getPosition()\r\n    elseif type==\"Rotation\" then\r\n        key = targetEnt.getRotation()\r\n    elseif type==\"Scale\" then\r\n        key = targetEnt.getScale()\r\n    elseif type==\"Tint\" then\r\n        key = targetEnt.getColorTint()\r\n    end\r\n    local string = \"[b]\"..type..\":[/b]\\n{\"\r\n    if infoOnOrOffList.show_keys==true then\r\n        if type==\"Tint\" then\r\n            return string..\"r=\"..round(key.r)..\", \"..\"g=\"..round(key.g)..\", \"..\"b=\"..round(key.b)..\"}\\n\"\r\n        else\r\n            return string..\"x=\"..round(key.x)..\", \"..\"y=\"..round(key.y)..\", \"..\"z=\"..round(key.z)..\"}\\n\"\r\n        end\r\n    else\r\n        return string..round(key[1])..\", \"..round(key[2])..\", \"..round(key[3])..\"}\\n\"\r\n    end\r\nend\r\n\r\n--Gets Hex (converts color tint into text coloring code)\r\nfunction getHexofTint()\r\n    local rgb = targetEnt.getColorTint()\r\n    local string = \"[b]Hex of Tint:[/b]\\n\"\r\n    return string..string.format(\"%02x%02x%02x\", rgb.r*255,rgb.g*255,rgb.b*255)..\"\\n\"\r\nend\r\n\r\n--Gets .tag\r\nfunction getTag()\r\n    return \"[b]Tag:[/b]\\n\"..targetEnt.tag..\"\\n\"\r\nend\r\n\r\n--Gets custom object information\r\nfunction getCustom()\r\n    local customObj = targetEnt.getCustomObject()\r\n    local string = \"[b]Custom Object:[/b]\\n\"\r\n    --Check for if customObj contains any keys\r\n    local checkForContents = false\r\n    for _, _ in pairs(customObj) do\r\n        checkForContents = true\r\n        break\r\n    end\r\n    if checkForContents==false then\r\n        --Not a custom object\r\n        return string..\"Not a custom object\\n\"\r\n    else\r\n        --Is a custom object\r\n\r\n        local stringResult = {}\r\n        --This section builds a string for each entry, places them in table\r\n        for key, val in pairs(customObj) do\r\n            if type(val)==\"table\" then\r\n                stringResult[key] = \"[u]\"..key..\":[/u]\\n{\" .. tostring(round(val[1])) .. \", \" .. tostring(round(val[2])) .. \", \" .. tostring(round(val[3])) .. \"}\\n\"\r\n            elseif type(val) == \"number\" then\r\n                stringResult[key] = \"[u]\"..key..\":[/u]\\n\" .. tostring(round(val)) .. \"\\n\"\r\n            elseif val ~= \"\" and val ~= nil then\r\n                stringResult[key] = \"[u]\"..key..\":[/u]\\n\" .. tostring(val) .. \"\\n\"\r\n            end\r\n        end\r\n\r\n        --This section adds those strings to the data that will be printed\r\n        --<COMMENT OUT AS NEEDED>   (see top of script for explanation)\r\n        if stringResult.image then string=string..stringResult.image end\r\n        if stringResult.image_secondary then string=string..stringResult.image_secondary end\r\n        if stringResult.type then string=string..stringResult.type end\r\n        if stringResult.thickness then string=string..stringResult.thickness end\r\n        if stringResult.stackable then string=string..stringResult.stackable end\r\n        if stringResult.merge_distance then string=string..stringResult.merge_distance end\r\n        if stringResult.mesh then string=string..stringResult.mesh end\r\n        if stringResult.diffuse then string=string..stringResult.diffuse end\r\n        if stringResult.normal then string=string..stringResult.normal end\r\n        if stringResult.collider then string=string..stringResult.collider end\r\n        if stringResult.convex then string=string..stringResult.convex end\r\n        if stringResult.material then string=string..stringResult.material end\r\n        if stringResult.specular_intensity then string=string..stringResult.specular_intensity end\r\n        if stringResult.specular_color then string=string..stringResult.specular_color end\r\n        if stringResult.specular_sharpness then string=string..stringResult.specular_sharpness end\r\n        if stringResult.fresnel_strength then string=string..stringResult.fresnel_strength end\r\n        if stringResult.cast_shadows then string=string..stringResult.cast_shadows end\r\n        if stringResult.assetbundle then string=string..stringResult.assetbundle end\r\n        if stringResult.assetbundle_secondary then string=string..stringResult.assetbundle_secondary end\r\n\r\n        --Returns the big 'ol string\r\n        return string\r\n    end\r\nend\r\n\r\n--For use in getting relative position\r\nfunction getRelativeXYZ(type)\r\n    local string = \"[b]Relative Pos:[/b]\\n{\"\r\n    local key = {}\r\n    if type==\"Position\" then\r\n        tpos = targetEnt.getPosition()\r\n        rpos = getObjectFromGUID(relativeEntGUID).getPosition()\r\n        key = {x=tpos.x-rpos.x, y=tpos.y, z=tpos.z-rpos.z}\r\n    end\r\n    if infoOnOrOffList.show_keys==true then\r\n        return string..\"x=\"..round(key.x)..\", \"..\"y=\"..round(key.y)..\", \"..\"z=\"..round(key.z)..\"}\\n\"\r\n    else\r\n        return string..round(key.x)..\", \"..round(key.y)..\", \"..round(key.z)..\"}\\n\"\r\n    end\r\nend\r\n\r\n\r\n\r\n--Utility functions\r\n\r\n\r\n\r\n--Used to round numbers to X decimal places\r\nfunction round(int)\r\n    local mult = 10^(roundingDecimal or 0)\r\n    return math.floor(int * mult + 0.5) / mult\r\nend\r\n\r\n\r\n\r\n--Click functions, triggered by button press\r\n\r\n\r\n\r\n--Triggered by + or - buttons\r\nfunction decimalAddOrSub(mathType)\r\n    if mathType == \"add\" then\r\n        roundingDecimal = roundingDecimal + 1\r\n    else\r\n        roundingDecimal = roundingDecimal - 1\r\n    end\r\n    updateSideDisplays()\r\nend\r\n\r\n--Triggered by clicking a checkbox\r\nfunction checkboxClick(index, info)\r\n    if infoOnOrOffList[info] == true then\r\n        infoOnOrOffList[info] = false\r\n    else\r\n        infoOnOrOffList[info] = true\r\n    end\r\n    updateCheckboxDisplay(index, info)\r\nend\r\n\r\n\r\n\r\n--Update of display buttons\r\n\r\n\r\n\r\n--Updates side displays with roundingDecimal\r\nfunction updateSideDisplays()\r\n    for i=0, 3 do\r\n        self.editButton({index=i, label=tostring(roundingDecimal)})\r\n    end\r\nend\r\n\r\n--Updates the checkbox displays to be on or off\r\nfunction updateCheckboxDisplay(index, info)\r\n    local label = string.char(9678)\r\n    if infoOnOrOffList[info] == true then label = string.char(9673) end\r\n    self.editButton({index=index, label=label})\r\nend\r\n\r\n\r\n\r\n--Button creation\r\n\r\n\r\n\r\n--Creates the displays on the sides, showing the rounding factor\r\nfunction createAllButtons()\r\n    --Side displays (indexes 0-3)\r\n    local sidePos = {{0,0,0.5},{0.5,0,0},{0,0,-0.5},{-0.5,0,0}}\r\n    local sideRot = {{-90,0,0},{0,-90,90},{90,180,0},{0,90,-90}}\r\n    for i=1, 4 do\r\n        self.createButton({\r\n            label=tostring(roundingDecimal), click_function=\"none\",\r\n            function_owner=self, position=sidePos[i], rotation=sideRot[i],\r\n            height=0, width=0, font_size=300\r\n        })\r\n    end\r\n    --Checkboxe circles (display only) (indexes 4-11)\r\n    for i=1, 8 do\r\n        local checkboxData = checkboxDataList[i]\r\n        local label = string.char(9678)\r\n        if infoOnOrOffList[checkboxData.info] == true then label = string.char(9673) end\r\n        local pos = checkboxData.pos\r\n        self.createButton({\r\n            label=label, click_function=\"none\", rotation={0,180,0},\r\n            function_owner=self, position={pos[1],pos[2],pos[3]-0.035},\r\n            height=0, width=0, font_size=160\r\n        })\r\n    end\r\n    --Creates GUID display\r\n    self.createButton({\r\n        label=\"\", click_function=\"none\", function_owner=self,\r\n        position={0,0.5,-0.42}, rotation={0,180,0}, height=0, width=0, font_size=50\r\n    })\r\n    --Display text that goes with GUID display\r\n    self.createButton({\r\n        label=\"Last GUID:\", click_function=\"none\", function_owner=self,\r\n        position={0,0.5,-0.33}, rotation={0,180,0}, height=0, width=0, font_size=25\r\n    })\r\n    --Creates buttons that change those circles\r\n    for i=1, 8 do\r\n        local checkboxData = checkboxDataList[i]\r\n        local funcName = \"button_\"..checkboxData.info\r\n        local pos = checkboxData.pos\r\n        self.createButton({\r\n            label=\"\", click_function=funcName, rotation={0,180,0},\r\n            function_owner=self, position={pos[1], pos[2]-0.01, pos[3]},\r\n            height=80, width=80, font_size=150\r\n        })\r\n        local func = function()\r\n            checkboxClick(checkboxData.index, checkboxData.info)\r\n        end\r\n        self.setVar(funcName, func)\r\n    end\r\n    --Create text labels for the circles\r\n    for i=1, 8 do\r\n        local checkboxData = checkboxDataList[i]\r\n        local pos = checkboxData.pos\r\n        self.createButton({\r\n            label=checkboxData.display, click_function=\"none\", rotation={0,180,0},\r\n            function_owner=self, position={pos[1]-0.235,pos[2],pos[3]},\r\n            height=0, width=0, font_size=30\r\n        })\r\n    end\r\n    --Words on sides\r\n    for i=1, 4 do\r\n        local pos = sidePos[i]\r\n        pos[2] = pos[2] + 0.348\r\n        self.createButton({\r\n            label=\"Round To\", click_function=\"none\",\r\n            function_owner=self, position=pos, rotation=sideRot[i],\r\n            height=0, width=0, font_size=60\r\n        })\r\n        pos[2] = pos[2] - 0.64\r\n        self.createButton({\r\n            label=\"Decimal Places\", click_function=\"none\",\r\n            function_owner=self, position=pos, rotation=sideRot[i],\r\n            height=0, width=0, font_size=60\r\n        })\r\n    end\r\n    --Add display for + and -\r\n    self.createButton({\r\n        label=string.char(8853), click_function=\"none\", function_owner=self,\r\n        position={-0.36,0.5,-0.385}, rotation={0,0,0}, height=0, width=0, font_size=100\r\n    })\r\n    self.createButton({\r\n        label=string.char(8854), click_function=\"none\", function_owner=self,\r\n        position={0.36,0.5,-0.385}, rotation={0,0,0}, height=0, width=0, font_size=100\r\n    })\r\n    --Add functional buttons for + and -\r\n    self.createButton({\r\n        label=\"\", click_function=\"addToDecimal\", function_owner=self,\r\n        position={-0.36,0.45,-0.38}, rotation={0,0,0}, height=80, width=80,\r\n    })\r\n    self.setVar(\"addToDecimal\", function() decimalAddOrSub(\"add\") end)\r\n    self.createButton({\r\n        label=\"\", click_function=\"subFromDecimal\", function_owner=self,\r\n        position={0.36,0.45,-0.38}, rotation={0,0,0}, height=80, width=80,\r\n    })\r\n    self.setVar(\"subFromDecimal\", function() decimalAddOrSub(\"sub\") end)\r\nend\r\n\r\ncheckboxDataList = {\r\n    {index=4, info=\"position\", pos={0.41,0.5,0.38}, display=\"Position\"},\r\n    {index=5, info=\"rotation\", pos={0.41,0.5,0.19}, display=\"Rotation\"},\r\n    {index=6, info=\"scale\", pos={0.41,0.5,0}, display=\"Scale\"},\r\n    {index=7, info=\"tint\", pos={-0.07,0.5,0.38}, display=\"Tint\"},\r\n    {index=8, info=\"tag\", pos={-0.07,0.5,0.19}, display=\"Tag\"},\r\n    {index=9, info=\"custom\", pos={-0.07,0.5,0}, display=\"CustomInfo\"},\r\n    {index=10, info=\"show_keys\", pos={0.41,0.5,-0.19}, display=\"Show Keys\"},\r\n    {index=11, info=\"double_space\", pos={-0.07,0.5,-0.19}, display=\"Add Spacer\"},\r\n}",
+      "LuaScriptState": "{\"ioool\":{\"custom\":true,\"double_space\":true,\"position\":true,\"rotation\":true,\"scale\":true,\"show_keys\":true,\"tag\":true,\"tint\":true},\"rd\":3}",
+      "GUID": "28830f"
+    },
+    {
+      "Name": "3DText",
+      "Transform": {
+        "posX": -17.9202251,
+        "posY": 0.961031437,
+        "posZ": 8.715883,
+        "rotX": 90.0,
+        "rotY": 359.165833,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "ℬℴ𝓃ℯ𝓎𝒶𝓇𝒹𝒲ℴℓ𝒻",
+        "colorstate": {
+          "r": 0.3254902,
+          "g": 0.3254902,
+          "b": 0.3254902
+        },
+        "fontSize": 64
+      },
+      "XmlUI": "",
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "GUID": "122fb8"
+    },
+    {
+      "Name": "3DText",
+      "Transform": {
+        "posX": -11.1756887,
+        "posY": 0.9610321,
+        "posZ": 9.676224,
+        "rotX": 90.0,
+        "rotY": 359.166382,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "",
+        "colorstate": {
+          "r": 0.3254902,
+          "g": 0.3254902,
+          "b": 0.3254902
+        },
+        "fontSize": 64
+      },
+      "XmlUI": "",
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "GUID": "9421ac"
+    },
+    {
+      "Name": "3DText",
+      "Transform": {
+        "posX": -17.7968216,
+        "posY": 0.9611051,
+        "posZ": 3.106448,
+        "rotX": 90.0,
+        "rotY": 359.166382,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "",
+        "colorstate": {
+          "r": 0.3254902,
+          "g": 0.3254902,
+          "b": 0.3254902
+        },
+        "fontSize": 64
+      },
+      "XmlUI": "",
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "GUID": "8cbee2"
+    },
+    {
+      "Name": "3DText",
+      "Transform": {
+        "posX": -9.59221649,
+        "posY": 0.961103559,
+        "posZ": 3.19542623,
+        "rotX": 90.0,
+        "rotY": 359.166382,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "",
+        "colorstate": {
+          "r": 0.3254902,
+          "g": 0.3254902,
+          "b": 0.3254902
+        },
+        "fontSize": 64
+      },
+      "XmlUI": "",
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "GUID": "ba516b"
+    },
+    {
+      "Name": "Custom_Token",
+      "Transform": {
+        "posX": 8.007321,
+        "posY": 1.06,
+        "posZ": 6.54590034,
+        "rotX": 1.30801169E-07,
+        "rotY": 179.999771,
+        "rotZ": -8.86391E-08,
+        "scaleX": 2.18514323,
+        "scaleY": 1.0,
+        "scaleZ": 2.18514323
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://i.imgur.com/SnDxlxU.jpg",
+        "ImageSecondaryURL": "",
+        "WidthScale": 0.0,
+        "CustomToken": {
+          "Thickness": 0.2,
+          "MergeDistancePixels": 15.0,
+          "Stackable": false
+        }
+      },
+      "LuaScript": "function onSave()\r\n    if players then\r\n        local data_to_save = {ps=player_scores, p=players, pc=playersCount, m=memoryOn}\r\n        saved_data = JSON.encode(data_to_save)\r\n        return saved_data\r\n    end\r\nend\r\n\r\nfunction onload(saved_data)\r\n    self.createButton(b_display)\r\n    self.createButton(b_memory)\r\n    self.createButton(b_b0)\r\n    self.createButton(b_b1)\r\n    self.createButton(b_b2)\r\n    self.createButton(b_b3)\r\n    self.createButton(b_b4)\r\n    self.createButton(b_b5)\r\n    self.createButton(b_b6)\r\n    self.createButton(b_b7)\r\n    self.createButton(b_b8)\r\n    self.createButton(b_b9)\r\n    self.createButton(b_enter)\r\n    self.createButton(b_plus)\r\n    self.createButton(b_minus)\r\n    operator = ''\r\n\r\n    if saved_data != '' and saved_data != nil then\r\n        local loaded_data = JSON.decode(saved_data)\r\n        if loaded_data.pc != nil and loaded_data.m == true then\r\n            printToAll('Scoreboard Data Loaded',{1,1,1})\r\n            player_scores = loaded_data.ps\r\n            players = loaded_data.p\r\n            playersCount = loaded_data.pc\r\n            --start timer\r\n            Timer.create({identifier='TD', function_name = 'timerDelay', delay=0.2})\r\n            for i=1, playersCount, 1 do\r\n                local tempName = Player[player_scores[i].color].steam_name\r\n                if tempName == nil then\r\n                    tempName = player_scores[i].color\r\n                else\r\n                    tempName = string.sub(tempName,1,8)\r\n                end\r\n                b_standings[i].label = tempName .. ': ' .. player_scores[i].score\r\n                self.createButton(b_standings[i])\r\n                b_standings[i].value = player_scores[i].score\r\n            end\r\n        else\r\n            player_scores = {}\r\n        end\r\n    else\r\n        player_scores = {}\r\n    end\r\n    memoryOn = true\r\nend\r\n\r\nfunction timerDelay()\r\n    b_display.label = ''\r\n    b_display.click_function = 'clear'\r\n    self.editButton(b_display)\r\nend\r\n\r\nfunction start()\r\n    players = getSeatedPlayers() -- Gets seated players\r\n    --players = {'White', 'Purple', 'Blue', 'Green', 'Red', 'Yellow', 'Brown', 'Pink'} -- For debugging, fakes players at table\r\n    playersCount = #players\r\n    b_display.label = ''\r\n    b_display.click_function = 'clear'\r\n    self.editButton(b_display)\r\n\r\n    for i=1, playersCount, 1 do\r\n        local tempName = Player[players[i]].steam_name\r\n        if tempName == nil then\r\n            tempName = players[i]\r\n        else\r\n            tempName = string.sub(tempName,1,8)\r\n        end\r\n        b_standings[i].label = tempName .. ': 0'\r\n        self.createButton(b_standings[i])\r\n        player_scores[i] = {color = players[i], score = 0}\r\n    end\r\nend\r\n\r\nfunction memoryOnOff()\r\n    if memoryOn then\r\n        memoryOn = false\r\n        b_memory.label='Memory:\\nOFF'\r\n        self.editButton(b_memory)\r\n    else\r\n        memoryOn = true\r\n        b_memory.label='Memory:\\nON'\r\n        self.editButton(b_memory)\r\n    end\r\nend\r\n\r\nfunction clear()\r\n    b_display.label = ''\r\n    self.editButton(b_display)\r\n    operator = ''\r\n    designatedPlayer = 0\r\nend\r\n\r\nfunction l1() l(1) end function l2() l(2) end function l3() l(3) end\r\nfunction l4() l(4) end function l5() l(5) end function l6() l(6) end\r\nfunction l7() l(7) end function l8() l(8) end\r\n\r\nfunction l(ln))\r\n    if operator == '' then\r\n        local value = b_standings[ln].value\r\n        b_display.label = value\r\n        self.editButton(b_display)\r\n        operator = 'pending'\r\n        designatedPlayer = ln\r\n    end\r\nend\r\n\r\nfunction plus()\r\n    if operator == 'pending' then\r\n        b_display.label = b_display.label .. ' + '\r\n        self.editButton(b_display)\r\n        operator = 'add'\r\n    end\r\nend\r\n\r\nfunction minus()\r\n    if operator == 'pending' then\r\n        b_display.label = b_display.label .. ' + '\r\n        self.editButton(b_display)\r\n        operator = 'subtract'\r\n    end\r\nend\r\n\r\nfunction b0() b('0') end function b1() b('1') end function b2() b('2') end\r\nfunction b3() b('3') end function b4() b('4') end function b5() b('5') end\r\nfunction b6() b('6') end function b7() b('7') end function b8() b('8') end\r\nfunction b9() b('9') end\r\n\r\nfunction b(n)\r\n    if operator == 'add' or operator == 'subtract' then\r\n        b_display.label = b_display.label .. n\r\n        self.editButton(b_display)\r\n    end\r\nend\r\n\r\nfunction enter()\r\n    if operator == 'add' or operator == 'subtract' then\r\n        local valueOld = b_standings[designatedPlayer].value\r\n        local s = b_display.label\r\n        local sn = string.find(s, '+')\r\n        local valueNew = string.sub(s, sn + 2, -1)\r\n        if operator == 'add' then\r\n            player_scores[designatedPlayer].score = valueOld + valueNew\r\n        elseif operator == 'subtract' then\r\n            player_scores[designatedPlayer].score = valueOld - valueNew\r\n        end\r\n        updateScores()\r\n\r\n        -- needs to be rewritten for when I have changing orders\r\n        --b_standings[designatedPlayer].label = players[designatedPlayer] .. ': ' .. b_standings[designatedPlayer].value\r\n        --self.editButton(b_standings[designatedPlayer])\r\n        --clear()\r\n    end\r\nend\r\n\r\nfunction updateScores()\r\n    local sort_func = function( a,b ) return a.score > b.score end\r\n    table.sort( player_scores, sort_func )\r\n    for i=1, playersCount, 1 do\r\n        local tempName = Player[player_scores[i].color].steam_name\r\n        if tempName == nil then\r\n            tempName = player_scores[i].color\r\n        else\r\n            tempName = string.sub(tempName,1,9)\r\n        end\r\n        b_standings[i].label = tempName .. ': ' .. player_scores[i].score\r\n        b_standings[i].value = player_scores[i].score\r\n        self.editButton(b_standings[i])\r\n    end\r\n    clear()\r\nend\r\n\r\n-- Basic paramiters for all buttons, utilized by createButton elsewhere\r\nb_display = {\r\n    index=0, label='Click Once Seated\\nto Start Scoring', click_function='start', function_owner=self,\r\n    position={-2.15,0.1,-0.925}, width=660, height=240, font_size=80\r\n}\r\n\r\nb_memory = {\r\n    index=1, label='Memory:\\nON', click_function='memoryOnOff', function_owner=self,\r\n    position={-2.6,0.1,0.9}, width=220, height=220, font_size=40\r\n}\r\n\r\nb_b0 = {\r\n    label='0', click_function='b0', function_owner=self,\r\n    position={-1.925,0.1,0.9}, width=430, height=220, font_size=180\r\n}\r\n\r\nb_b1 = {\r\n    label='1', click_function='b1', function_owner=self,\r\n    position={-2.6,0.1,0.45}, width=220, height=220, font_size=180\r\n}\r\n\r\nb_b2 = {\r\n    label='2', click_function='b2', function_owner=self,\r\n    position={-2.15,0.1,0.45}, width=220, height=220, font_size=180\r\n}\r\n\r\nb_b3 = {\r\n    label='3', click_function='b3', function_owner=self,\r\n    position={-1.7,0.1,0.45}, width=220, height=220, font_size=180\r\n}\r\n\r\nb_b4 = {\r\n    label='4', click_function='b4', function_owner=self,\r\n    position={-2.6,0.1,0}, width=220, height=220, font_size=180\r\n}\r\n\r\nb_b5 = {\r\n    label='5', click_function='b5', function_owner=self,\r\n    position={-2.15,0.1,0}, width=220, height=220, font_size=180\r\n}\r\n\r\nb_b6 = {\r\n    label='6', click_function='b6', function_owner=self,\r\n    position={-1.7,0.1,0}, width=220, height=220, font_size=180\r\n}\r\n\r\nb_b7 = {\r\n    label='7', click_function='b7', function_owner=self,\r\n    position={-2.6,0.1,-0.45}, width=220, height=220, font_size=180\r\n}\r\n\r\nb_b8 = {\r\n    label='8', click_function='b8', function_owner=self,\r\n    position={-2.15,0.1,-0.45}, width=220, height=220, font_size=180\r\n}\r\n\r\nb_b9 = {\r\n    label='9', click_function='b9', function_owner=self,\r\n    position={-1.7,0.1,-0.45}, width=220, height=220, font_size=180\r\n}\r\n\r\nb_enter = {\r\n    label='=', click_function='enter', function_owner=self,\r\n    position={-1.25,0.1,0.68}, width=220, height=430, font_size=180\r\n}\r\n\r\nb_plus = {\r\n    label='+', click_function='plus', function_owner=self,\r\n    position={-1.25,0.1,-0.235}, width=220, height=430, font_size=180\r\n}\r\n\r\nb_minus = {\r\n    label='-', click_function='minus', function_owner=self,\r\n    position={-1.25,0.1,-0.925}, width=220, height=220, font_size=180\r\n}\r\n\r\n\r\nb_standings = {\r\n    [1] = {\r\n        index=15, label='', click_function='l1', function_owner=self,\r\n        position={0.123,0.1,-0.9}, width=740, height=220, font_size=100, value='0'\r\n    },\r\n\r\n    [2] = {\r\n        index=16, label='', click_function='l2', function_owner=self,\r\n        position={0.123,0.1,-0.3}, width=740, height=220, font_size=100, value='0'\r\n    },\r\n\r\n    [3] = {\r\n        index=17, label='', click_function='l3', function_owner=self,\r\n        position={0.123,0.1,0.3}, width=740, height=220, font_size=100, value='0'\r\n    },\r\n\r\n    [4] = {\r\n        index=18, label='', click_function='l4', function_owner=self,\r\n        position={0.123,0.1,0.9}, width=740, height=220, font_size=100, value='0'\r\n    },\r\n\r\n    [5] = {\r\n        index=19, label='', click_function='l5', function_owner=self,\r\n        position={2.04,0.1,-0.9}, width=740, height=220, font_size=100, value='0'\r\n    },\r\n\r\n    [6] = {\r\n        index=20, label='', click_function='l6', function_owner=self,\r\n        position={2.04,0.1,-0.3}, width=740, height=220, font_size=100, value='0'\r\n    },\r\n\r\n    [7] = {\r\n        index=21, label='', click_function='l7', function_owner=self,\r\n        position={2.04,0.1,0.3}, width=740, height=220, font_size=100, value='0'\r\n    },\r\n\r\n    [8] = {\r\n        index=22, label='', click_function='l8', function_owner=self,\r\n        position={2.04,0.1,0.9}, width=740, height=220, font_size=100, value='0'\r\n    }\r\n}",
+      "LuaScriptState": "{\"m\":true,\"p\":[\"Blue\",\"Orange\"],\"pc\":2,\"ps\":[{\"color\":\"Blue\",\"score\":0},{\"color\":\"Orange\",\"score\":0}]}",
+      "GUID": "341c7c"
+    },
+    {
+      "Name": "3DText",
+      "Transform": {
+        "posX": -17.7305,
+        "posY": 0.9611795,
+        "posZ": -2.73322558,
+        "rotX": 90.0,
+        "rotY": -2.35823849E-09,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "",
+        "colorstate": {
+          "r": 0.3254902,
+          "g": 0.3254902,
+          "b": 0.3254902
+        },
+        "fontSize": 64
+      },
+      "XmlUI": "",
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "GUID": "bf78b6"
+    },
+    {
+      "Name": "3DText",
+      "Transform": {
+        "posX": -9.174987,
+        "posY": 0.9611602,
+        "posZ": -1.28913808,
+        "rotX": 90.0,
+        "rotY": -2.35823849E-09,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "",
+        "colorstate": {
+          "r": 0.3254902,
+          "g": 0.3254902,
+          "b": 0.3254902
+        },
+        "fontSize": 64
+      },
+      "XmlUI": "",
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "GUID": "562124"
+    },
+    {
+      "Name": "3DText",
+      "Transform": {
+        "posX": -16.8506184,
+        "posY": 0.9612356,
+        "posZ": -6.384234,
+        "rotX": 90.0,
+        "rotY": -2.35823849E-09,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "",
+        "colorstate": {
+          "r": 0.3254902,
+          "g": 0.3254902,
+          "b": 0.3254902
+        },
+        "fontSize": 64
+      },
+      "XmlUI": "",
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "GUID": "9c997c"
+    },
+    {
+      "Name": "3DText",
+      "Transform": {
+        "posX": -9.131575,
+        "posY": 0.9612356,
+        "posZ": -6.252324,
+        "rotX": 90.0,
+        "rotY": -2.35823849E-09,
+        "rotZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "Text": {
+        "Text": "",
+        "colorstate": {
+          "r": 0.3254902,
+          "g": 0.3254902,
+          "b": 0.3254902
+        },
+        "fontSize": 64
+      },
+      "XmlUI": "",
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "GUID": "e80c0c"
+    },
+    {
+      "Name": "Custom_Token",
+      "Transform": {
+        "posX": 5.424222,
+        "posY": 1.06,
+        "posZ": -1.77292693,
+        "rotX": 2.80222014E-08,
+        "rotY": 180.0,
+        "rotZ": -3.15215942E-08,
+        "scaleX": 2.548663,
+        "scaleY": 1.0,
+        "scaleZ": 2.548663
+      },
+      "Nickname": "",
+      "Description": "",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "Locked": true,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "https://d.grancypher.xyz/black-877e425b.png",
+        "ImageSecondaryURL": "",
+        "WidthScale": 0.0,
+        "CustomToken": {
+          "Thickness": 0.200000048,
+          "MergeDistancePixels": 15.0,
+          "Stackable": false
+        }
+      },
+      "LuaScript": "function onSave()\r\n\r\nend\r\n\r\nfunction onload(saved_data)\r\n    --self.createButton(test)\r\n    do --Start Create Buttons\r\n        self.createButton(white)\r\n        self.createButton(red)\r\n        self.createButton(orange)\r\n        self.createButton(yellow)\r\n        self.createButton(green)\r\n        self.createButton(blue)\r\n        self.createButton(purple)\r\n        self.createButton(pink)\r\n        self.createButton(b_b0)\r\n        self.createButton(b_b1)\r\n        self.createButton(b_b2)\r\n        self.createButton(b_b3)\r\n        self.createButton(b_b4)\r\n        self.createButton(b_b5)\r\n        self.createButton(b_b6)\r\n        self.createButton(b_b7)\r\n        self.createButton(b_b8)\r\n        self.createButton(b_b9)\r\n    end --End Create Buttons\r\nend\r\n\r\npos1 = {0,0.1,0} --Origin For Color Buttons\r\ndo --Start Color Button Parameters\r\n    white = {\r\n        index=0, click_function='none', function_owner=self,\r\n        position={pos1[1]-0.3, pos1[2], pos1[3]-0.1}, width=100, height=100,\r\n        color={255,255,255}\r\n    }\r\n\r\n    red = {\r\n        index=0, click_function='none', function_owner=self,\r\n        position={pos1[1]-0.1, pos1[2], pos1[3]-0.1}, width=100, height=100,\r\n        color={0.856, 0.1, 0.094}\r\n    }\r\n\r\n    orange = {\r\n        index=0, click_function='none', function_owner=self,\r\n        position={pos1[1]+0.1, pos1[2], pos1[3]-0.1}, width=100, height=100,\r\n        color={0.956, 0.392, 0.113}\r\n    }\r\n\r\n    yellow = {\r\n        index=0, click_function='none', function_owner=self,\r\n        position={pos1[1]+0.3, pos1[2], pos1[3]-0.1}, width=100, height=100,\r\n        color={0.905, 0.898, 0.172}\r\n    }\r\n    ---------------------------\r\n    green = {\r\n        index=0, click_function='none', function_owner=self,\r\n        position={pos1[1]-0.3, pos1[2], pos1[3]+0.1}, width=100, height=100,\r\n        color={0.192, 0.701, 0.168}\r\n    }\r\n\r\n    blue = {\r\n        index=0, click_function='none', function_owner=self,\r\n        position={pos1[1]-0.1, pos1[2], pos1[3]+0.1}, width=100, height=100,\r\n        color={0.118, 0.53, 1}\r\n    }\r\n\r\n    purple = {\r\n        index=0, click_function='none', function_owner=self,\r\n        position={pos1[1]+0.1, pos1[2], pos1[3]+0.1}, width=100, height=100,\r\n        color={0.627, 0.125, 0.941}\r\n    }\r\n\r\n    pink = {\r\n        index=0, click_function='none', function_owner=self,\r\n        position={pos1[1]+0.3, pos1[2], pos1[3]+0.1}, width=100, height=100,\r\n        color={0.96, 0.439, 0.807}\r\n    }\r\nend --End Color Button Parameters\r\n\r\npos2 = {2,0.1 ,2} --Origin For NumPad Buttons\r\ndo --Start NumPad Button Parameters\r\n    b_b0 = {\r\n        label='0', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ 0 ,pos2[2]+ 0 ,pos2[3]+ 0 }\r\n    }\r\n    b_b1 = {\r\n        label='1', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ (-0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.2) }\r\n    }\r\n    b_b2 = {\r\n        label='2', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ 0 ,pos2[2]+ 0 ,pos2[3]+ (-0.2) }\r\n    }\r\n    b_b3 = {\r\n        label='3', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ (0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.2) }\r\n    }\r\n    b_b4 = {\r\n        label='4', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ (-0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.4) }\r\n    }\r\n    b_b5 = {\r\n        label='5', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ 0 ,pos2[2]+ 0 ,pos2[3]+ (-0.4) }\r\n    }\r\n    b_b6 = {\r\n        label='6', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ (0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.4) }\r\n    }\r\n    b_b7 = {\r\n        label='7', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ (-0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.6) }\r\n    }\r\n    b_b8 = {\r\n        label='8', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ 0 ,pos2[2]+ 0 ,pos2[3]+ (-0.6) }\r\n    }\r\n    b_b9 = {\r\n        label='9', click_function='none', function_owner=self,\r\n        width=100, height=100, font_size=60,\r\n        position={pos2[1]+ (0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.6) }\r\n    }\r\nend --End NumPad Button Parameters\r\n\r\n\r\nfunction none()\r\nend",
+      "LuaScriptState": "",
+      "GUID": "960882",
+      "AttachedVectorLines": [
+        {
+          "points3": [
+            {
+              "x": -1.43627071,
+              "y": 0.110000014,
+              "z": -0.160895348
+            },
+            {
+              "x": -1.43627071,
+              "y": 0.110000014,
+              "z": -0.160895348
+            },
+            {
+              "x": -1.43627071,
+              "y": 0.110000014,
+              "z": -0.160895348
+            },
+            {
+              "x": -1.43627071,
+              "y": 0.110000014,
+              "z": -0.160895348
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": -1.21630418,
+              "y": 0.109999895,
+              "z": -1.15196443
+            },
+            {
+              "x": -2.442908,
+              "y": 0.109999895,
+              "z": -1.1470803
+            },
+            {
+              "x": -2.437459,
+              "y": 0.110000044,
+              "z": 0.22139509
+            },
+            {
+              "x": -1.210855,
+              "y": 0.110000044,
+              "z": 0.216510937
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": -1.21805775,
+              "y": 0.1100001,
+              "z": 0.40496254
+            },
+            {
+              "x": -1.65429735,
+              "y": 0.1100001,
+              "z": 0.406699657
+            },
+            {
+              "x": -1.65291774,
+              "y": 0.110000134,
+              "z": 0.7532034
+            },
+            {
+              "x": -1.21667814,
+              "y": 0.110000134,
+              "z": 0.7514665
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": -1.85841787,
+              "y": 0.110000074,
+              "z": 0.403819561
+            },
+            {
+              "x": -2.40454769,
+              "y": 0.1100001,
+              "z": 0.4059941
+            },
+            {
+              "x": -2.40310931,
+              "y": 0.110000134,
+              "z": 0.767235339
+            },
+            {
+              "x": -1.85697949,
+              "y": 0.110000134,
+              "z": 0.7650606
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": -1.24196231,
+              "y": 0.110000134,
+              "z": 0.9391482
+            },
+            {
+              "x": -2.39307141,
+              "y": 0.110000193,
+              "z": 0.943731844
+            },
+            {
+              "x": -2.392107,
+              "y": 0.110000134,
+              "z": 1.18603718
+            },
+            {
+              "x": -1.24099731,
+              "y": 0.110000134,
+              "z": 1.18145359
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 2.5733273,
+              "y": 0.109999895,
+              "z": -1.23060465
+            },
+            {
+              "x": 2.23777747,
+              "y": 0.109999895,
+              "z": -1.2247498
+            },
+            {
+              "x": 2.25753832,
+              "y": 0.110000022,
+              "z": -0.09219855
+            },
+            {
+              "x": 2.59308815,
+              "y": 0.110000014,
+              "z": -0.09805332
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 2.11899924,
+              "y": 0.110000022,
+              "z": -0.07676974
+            },
+            {
+              "x": 1.81221962,
+              "y": 0.110000022,
+              "z": -0.07141699
+            },
+            {
+              "x": 1.79192865,
+              "y": 0.109999895,
+              "z": -1.23434842
+            },
+            {
+              "x": 2.09870815,
+              "y": 0.109999895,
+              "z": -1.23970115
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 1.68461072,
+              "y": 0.110000014,
+              "z": -0.116898626
+            },
+            {
+              "x": 1.37743986,
+              "y": 0.110000014,
+              "z": -0.111539051
+            },
+            {
+              "x": 1.35767794,
+              "y": 0.109999895,
+              "z": -1.24414706
+            },
+            {
+              "x": 1.66484892,
+              "y": 0.109999895,
+              "z": -1.24950647
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 2.543056,
+              "y": 0.110000044,
+              "z": 0.132647857
+            },
+            {
+              "x": 1.502384,
+              "y": 0.110000044,
+              "z": 0.1508058
+            },
+            {
+              "x": 1.50745,
+              "y": 0.110000074,
+              "z": 0.441145241
+            },
+            {
+              "x": 2.548122,
+              "y": 0.110000074,
+              "z": 0.422987282
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 2.48636961,
+              "y": 0.110000074,
+              "z": 0.6537212
+            },
+            {
+              "x": 1.43740976,
+              "y": 0.110000074,
+              "z": 0.672023833
+            },
+            {
+              "x": 1.44315171,
+              "y": 0.110000134,
+              "z": 1.00110888
+            },
+            {
+              "x": 2.49211168,
+              "y": 0.110000134,
+              "z": 0.982806444
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 1.21005857,
+              "y": 0.109999895,
+              "z": -1.24591672
+            },
+            {
+              "x": -0.1176298,
+              "y": 0.109999895,
+              "z": -1.2227509
+            },
+            {
+              "x": -0.108161069,
+              "y": 0.109999955,
+              "z": -0.6800809
+            },
+            {
+              "x": 1.21952724,
+              "y": 0.109999955,
+              "z": -0.7032467
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 1.199844,
+              "y": 0.109999955,
+              "z": -0.5683458
+            },
+            {
+              "x": -0.109581307,
+              "y": 0.109999955,
+              "z": -0.5454986
+            },
+            {
+              "x": -0.08961146,
+              "y": 0.110000074,
+              "z": 0.599015057
+            },
+            {
+              "x": 1.2198137,
+              "y": 0.110000074,
+              "z": 0.5761678
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 1.20052123,
+              "y": 0.110000074,
+              "z": 0.749803245
+            },
+            {
+              "x": 0.8277647,
+              "y": 0.110000134,
+              "z": 0.7563073
+            },
+            {
+              "x": 0.8345635,
+              "y": 0.110000134,
+              "z": 1.14595747
+            },
+            {
+              "x": 1.20732009,
+              "y": 0.110000134,
+              "z": 1.13945353
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 0.658991933,
+              "y": 0.110000134,
+              "z": 0.767916739
+            },
+            {
+              "x": 0.312380821,
+              "y": 0.110000134,
+              "z": 0.7739645
+            },
+            {
+              "x": 0.319104,
+              "y": 0.110000134,
+              "z": 1.15928006
+            },
+            {
+              "x": 0.665715,
+              "y": 0.110000134,
+              "z": 1.15323246
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        },
+        {
+          "points3": [
+            {
+              "x": 0.169239089,
+              "y": 0.110000134,
+              "z": 0.772130132
+            },
+            {
+              "x": -0.146916032,
+              "y": 0.110000134,
+              "z": 0.7776465
+            },
+            {
+              "x": -0.14034386,
+              "y": 0.110000134,
+              "z": 1.15430808
+            },
+            {
+              "x": 0.175811261,
+              "y": 0.110000134,
+              "z": 1.14879167
+            }
+          ],
+          "color": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0
+          },
+          "thickness": 0.1,
+          "loop": true
+        }
+      ]
+    },
+    {
+      "Name": "Custom_Assetbundle",
+      "Transform": {
+        "posX": 13.484478,
+        "posY": 1.07000017,
+        "posZ": 15.0160389,
+        "rotX": -8.95041836E-08,
+        "rotY": 180.623932,
+        "rotZ": -1.84609473E-06,
+        "scaleX": 0.55000037,
+        "scaleY": 0.55000037,
+        "scaleZ": 0.55000037
+      },
+      "Nickname": "Turn-O-Matic     by: MrStump",
+      "Description": "END TURN - Ends turn, passes to the next color on the list.\n\nBACK - Ends turn, passes to the previous color on the list.\n\nCOLOR NAME - Press a color name to pass turn to them.\n\nSET PLACE - Sets where the tool moves itself to. Position relative to the name on the table.\n\nSET COLOR - Press to change the colors in the list.\n",
+      "ColorDiffuse": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0
+      },
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": false,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomAssetbundle": {
+        "AssetbundleURL": "https://drive.google.com/uc?export=download&id=0B2Vde7gggGHpRGNJZnZkd2JIMjA",
+        "AssetbundleSecondaryURL": "",
+        "MaterialIndex": 1,
+        "TypeIndex": 0,
+        "LoopingEffectIndex": 0
+      },
+      "LuaScript": "--Prevents anyone but that color, host or promoted players from using buttons\r\n--true is on, false is off\r\npreventOtherColor = false\r\n\r\n--Allows for colors to be put onto the list more than once\r\n--There is still a max limit of turns in the list, due to limited space.\r\n--true is on, false is off\r\nallowRepeatSelections = false\r\n\r\n--Limit on color selections that go into the list, do NOT INCREASE OVER 10.\r\n--If you do, it will look ugly and dumb. It will still work though.\r\nmaxColorsInList = 10\r\n\r\nfunction onSave()\r\n    local data_to_save = {cl=colorList, ci=currentIndex, dp=deltaPos}\r\n    saved_data = JSON.encode(data_to_save)\r\n    return saved_data\r\nend\r\n\r\nfunction onload(saved_data)\r\n    if saved_data ~= \"\" then\r\n        --Set up information off of loaded_data\r\n        local loaded_data = JSON.decode(saved_data)\r\n        colorList = loaded_data.cl\r\n        currentIndex = loaded_data.ci\r\n        deltaPos = loaded_data.dp\r\n    else\r\n        --Set up information for if there is no saved saved data\r\n        colorList = {\r\n            \"White\", \"Brown\", \"Red\", \"Orange\", \"Yellowd\",\r\n            \"Green\", \"Teal\", \"Blue\", \"Purple\", \"Pink\"\r\n        }\r\n        currentIndex = 1\r\n        deltaPos = {0,1,4}\r\n    end\r\n\r\n    --Check to make sure that all colors in colorList exist on the table.\r\n    --If not, it resets the tool to its \"inactive\" state.\r\n    local wasListReset = false\r\n    for _, color in ipairs(colorList) do\r\n        if Player[color].getPlayerHand() == nil then\r\n            currentIndex = 0\r\n            colorList = {}\r\n            wasListReset = true\r\n            break\r\n        end\r\n    end\r\n    if wasListReset == false and #colorList > 0 then\r\n        moveToolToPlayer()\r\n    else\r\n        broadcastToAll(\"No colors selected. Tool Inactive. Use [ff6666]Set Color[-] to pick colors.\", {0.8,0.05,0.05})\r\n    end\r\n\r\n    createActiveModeButtons()\r\nend\r\n\r\n--[[            Active Buttons: End Turn, Back and Color Words            ]]\r\n\r\n--End turn button\r\nfunction clickEndTurn(_, clickerColor)\r\n    if isClickAllowed(clickerColor) == true then\r\n        if #colorList > 0 then\r\n            printMessageToAll(\"endTurn\", clickerColor)\r\n            --Set index of next color\r\n            if currentIndex == #colorList then currentIndex = 1\r\n            else currentIndex = currentIndex + 1 end\r\n            --Activate move\r\n            moveToolToPlayer()\r\n            moveColorIndicator(currentIndex)\r\n        end\r\n    end\r\nend\r\n\r\n--Back turn button\r\nfunction clickBackTurn(_, clickerColor)\r\n    if isClickAllowed(clickerColor) == true then\r\n        if #colorList > 0 then\r\n            printMessageToAll(\"backTurn\", clickerColor)\r\n            --Set index of next color\r\n            if currentIndex == 1 then currentIndex = #colorList\r\n            else currentIndex = currentIndex - 1 end\r\n            --move tool move indicator\r\n            moveToolToPlayer()\r\n            moveColorIndicator(currentIndex)\r\n        end\r\n    end\r\nend\r\n\r\n--Color word click function\r\nfunction clickActiveColor(playerColor, clickerColor, i)\r\n    if isClickAllowed(clickerColor) == true then\r\n        printMessageToAll(\"activeColor\", clickerColor, playerColor)\r\n        currentIndex = i\r\n        moveToolToPlayer()\r\n        moveColorIndicator(currentIndex)\r\n    end\r\nend\r\n\r\n--[[            Active Buttons: Set Place and Set Color            ]]\r\n\r\n--Set Place click function\r\nfunction clickSetPlace(_, clickerColor)\r\n    if isClickAllowed(clickerColor) == true then\r\n        if #colorList > 0 then\r\n            local playerHand = Player[colorList[currentIndex]].getPlayerHand()\r\n            local toolPos = self.getPosition()\r\n            deltaPos = {\r\n                playerHand.trigger_right_x * (toolPos.x - playerHand.pos_x) - playerHand.trigger_forward_x * (toolPos.z - playerHand.pos_z) ,\r\n                toolPos.y - playerHand.pos_y,\r\n                playerHand.trigger_forward_z * (toolPos.z - playerHand.pos_z) - playerHand.trigger_right_z * (toolPos.x - playerHand.pos_x) ,\r\n            }\r\n            self.setLock(true)\r\n            broadcastToAll(\"Location for tool updated.\", {1,1,1})\r\n        end\r\n    end\r\nend\r\n\r\n--Set color click function\r\nfunction clickSetColor(_, clickerColor)\r\n    if isClickAllowed(clickerColor) == true then\r\n        colorList = {}\r\n        self.AssetBundle.playTriggerEffect(0)\r\n        self.clearButtons()\r\n        Timer.destroy(self.getGUID()..\"spawnButtons\")\r\n        Timer.create({\r\n            identifier=self.getGUID()..\"spawnButtons\", delay=0.5,\r\n            function_name=\"clickSetColorTimer\", function_owner=self\r\n        })\r\n    end\r\nend\r\n--Timer trigger from clickSetColor\r\nfunction clickSetColorTimer()\r\n    createEditModeButtons()\r\nend\r\n\r\n--[[            Edit Button Control            ]]\r\n\r\n--Color button click function\r\nfunction clickEditColor(playerColor, clickerColor)\r\n    if Player[playerColor].getPlayerHand() then\r\n        if allowRepeatSelections == true or getOffsetFromColorList(playerColor) == nil then\r\n            if #colorList <= maxColorsInList then\r\n                table.insert(colorList, playerColor)\r\n                addColorToColorList(playerColor)\r\n            else\r\n                broadcastToAll(maxColorsInList .. \" is the maximum number of entries you can have in the color list.\", {0.8,0.05,0.05})\r\n            end\r\n        else\r\n            broadcastToAll(playerColor..\" is already on the turn-order list.\", {0.8,0.05,0.05})\r\n        end\r\n    else\r\n        broadcastToAll(playerColor..\" is not a hand zone color available on this table.\", {0.8,0.05,0.05})\r\n    end\r\nend\r\n\r\n--Click function for undo\r\nfunction clickUndoColor()\r\n    if #colorList > 0 then\r\n        removeColorFromColorList()\r\n        table.remove(colorList, #colorList)\r\n    end\r\nend\r\n\r\n--Submit function to submit colors\r\nfunction clickSubmitColors()\r\n    self.AssetBundle.playTriggerEffect(1)\r\n    self.clearButtons()\r\n    if #colorList > 0 then\r\n        currentIndex = 1\r\n        moveToolToPlayer()\r\n    else\r\n        currentIndex = 0\r\n        self.setColorTint({0,0,0})\r\n        broadcastToAll(\"No colors selected. Tool Inactive. Use [ff6666]Set Color[-] to pick colors.\", {0.8,0.05,0.05})\r\n    end\r\n    createActiveModeButtons()\r\nend\r\n\r\n--[[            Utility functions            ]]\r\n\r\n--Finds what index number of colorList the current turn is\r\nfunction getOffsetFromColorList(c)\r\n    for i, color in ipairs(colorList) do\r\n        if color == c then\r\n            return i\r\n        end\r\n    end\r\n    return nil\r\nend\r\n\r\n--Moves the tool to whichever seat currentIndex of colorList is.\r\nfunction moveToolToPlayer()\r\n    self.setLock(true)\r\n    local playerHand = Player[colorList[currentIndex]].getPlayerHand()\r\n    if playerHand then\r\n        local rot = {0, playerHand.rot_y + 180, 0}\r\n        local pos = {\r\n            playerHand.pos_x + (playerHand.trigger_forward_x * deltaPos[3]) + (playerHand.trigger_right_x * deltaPos[1]),\r\n            playerHand.pos_y + deltaPos[2],\r\n            playerHand.pos_z + (playerHand.trigger_forward_z * deltaPos[3]) + (playerHand.trigger_right_z * deltaPos[1])\r\n        }\r\n        self.setPosition(pos)\r\n        self.setRotation(rot)\r\n        self.AssetBundle.playTriggerEffect(2)\r\n        self.setColorTint(stringColorToRGB(colorList[currentIndex]))\r\n        broadcastToAll(\"-\"..colorList[currentIndex]..\"'s Turn-\", stringColorToRGB(colorList[currentIndex]))\r\n    else\r\n        broadcastToAll(\"Cannot pass turn to \"..colorList[currentIndex]..\". It does not exist on this table.\", {0.8,0.05,0.05})\r\n    end\r\nend\r\n\r\n--Removes colors from colorList that do not exist on the actual table\r\nfunction removeInvalidColorsFromColorList()\r\n    for i, color in ipairs(colorList) do\r\n        local playerHand = Player[color].getPlayerHand()\r\n        if not playerHand then\r\n            table.remove(colorList, i)\r\n            removeInvalidColorsFromColorList()\r\n            break\r\n        end\r\n    end\r\nend\r\n\r\n--Creates the printToAll strings and prints them\r\nfunction printMessageToAll(type, clickerColor, playerColor)\r\n    local stringToPrint, key = \"\", type\r\n    if colorList[currentIndex] == clickerColor then key = key .. \"Match\"\r\n    else key = key .. \"Miss\" end\r\n    --This for loop is assembling an approprite string from a table of strings\r\n    --Certain strings are replaced by parameter data\r\n    for _, string in ipairs(printMessageStringGenerationData[key]) do\r\n        if string == \"CLICKC_NAME\" then\r\n            stringToPrint = stringToPrint..Player[clickerColor].steam_name\r\n        elseif string == \"CURRENTC\" then\r\n            stringToPrint = stringToPrint..colorList[currentIndex]\r\n        elseif string == \"PLAYERC\" then\r\n            stringToPrint = stringToPrint..playerColor\r\n        else\r\n            stringToPrint = stringToPrint..string\r\n        end\r\n    end\r\n    printToAll(stringToPrint, stringColorToRGB(colorList[currentIndex]))\r\nend\r\n\r\n--Used to determine if a player is allowed to click a given button\r\nfunction isClickAllowed(clickerColor)\r\n    if preventOtherColor == false then\r\n        return true\r\n    else\r\n        if Player[clickerColor].host==true then\r\n            return true\r\n        elseif Player[clickerColor].promoted==true then\r\n            return true\r\n        elseif clickerColor==colorList[currentIndex] then\r\n            return true\r\n        elseif clickerColor==\"\" then\r\n            return true\r\n        else\r\n            return false\r\n        end\r\n    end\r\nend\r\n\r\n--[[            Button Creation/Destruction/Editing            ]]\r\n\r\n--Spawns End/Back/Set buttons and color buttons (for the word list)\r\nfunction createActiveModeButtons()\r\n    --Marker next to name\r\n    local iOffset = currentIndex\r\n    if #colorList > 0 then\r\n        self.createButton({\r\n            label=string.char(8273)..\"               \"..string.char(8273),\r\n            click_function=\"none\", function_owner=self, height=0, width=0,\r\n            position={2.5,0.15,-2.54+0.57*(iOffset-1)}, font_size=240\r\n        })\r\n    end\r\n    --End/Back/Set buttons\r\n    for _, param in ipairs(activeModeButtonParams) do\r\n        self.createButton({\r\n            click_function=param.cf, function_owner=self,\r\n            position=param.p, height=param.h, width=param.w,\r\n        })\r\n    end\r\n    removeInvalidColorsFromColorList()\r\n    for i, color in ipairs(colorList) do\r\n        local funcName = \"clickActive\"..color\r\n        local func = function(o,c) clickActiveColor(color, c, i) end\r\n        --Display names only\r\n        self.createButton({\r\n            label=color, click_function=\"none\", function_owner=self,\r\n            position={2.5,0.15,-2.54+0.57*(i-1)}, height=0, width=0, font_size=240\r\n        })\r\n        --Clickable button under name\r\n        self.createButton({\r\n            click_function=funcName, function_owner=self,\r\n            position={2.5,0.04,-2.58+0.57*(i-1)}, height=260, width=1000\r\n        })\r\n        self.setVar(funcName, func)\r\n    end\r\nend\r\n\r\n--Spawns buttons for colors (editing color list)\r\nfunction createEditModeButtons()\r\n    for i, param in ipairs(editModeButtonParams) do\r\n        local pos, funcName = \"\", \"clickEdit\"..param.c\r\n        local func = function(o,c) clickEditColor(param.c, c) end\r\n        if param.r == 1 then pos = {4.55,0,-2.5+0.923*(i-1)}\r\n        else pos = {5.48,0,-2.5+0.923*(i-6)} end\r\n        self.createButton({\r\n            click_function=funcName, function_owner=self,\r\n            position=pos, height=400, width=400,\r\n        })\r\n        self.setVar(funcName, func)\r\n    end\r\n    self.createButton({\r\n        click_function=\"clickUndoColor\", function_owner=self,\r\n        position={4.55,0,2.37}, height=550, width=400,\r\n    })\r\n    self.createButton({\r\n        click_function=\"clickSubmitColors\", function_owner=self,\r\n        position={5.48,0,2.37}, height=550, width=400,\r\n    })\r\nend\r\n\r\n--Moves indicator down on the color name list\r\nfunction moveColorIndicator(i)\r\n    self.editButton({index=0, position={2.5,0.15,-2.54+0.57*(i-1)}})\r\nend\r\n\r\n--Adds names to the color list in edit mode only, displays only\r\nfunction addColorToColorList(playerColor)\r\n    local i = #colorList\r\n    self.createButton({\r\n        label=playerColor, click_function=\"none\", function_owner=self,\r\n        position={2.5,0.15,-2.54+0.57*(i-1)}, height=0, width=0, font_size=240\r\n    })\r\nend\r\n\r\n--Removes the last entry fro mthe color list in edit mode only\r\nfunction removeColorFromColorList()\r\n    self.removeButton(11+#colorList)\r\nend\r\n\r\n--[[            Data Tables            ]]\r\n\r\n--Button creation data\r\nactiveModeButtonParams = {\r\n    {cf=\"clickEndTurn\", h=1240, w=1900, p={-1.18,0.05,-1.4}},\r\n    {cf=\"clickBackTurn\", h=540, w=1900, p={-1.18,0.05,0.74}},\r\n    {cf=\"clickSetPlace\", h=540, w=900, p={-2.22,0.05,2.135}},\r\n    {cf=\"clickSetColor\", h=540, w=900, p={-0.12,0.05,2.135}},\r\n}\r\neditModeButtonParams = {\r\n    {c=\"White\", r=1}, {c=\"Red\", r=1}, {c=\"Yellow\", r=1},\r\n    {c=\"Teal\", r=1}, {c=\"Purple\", r=1},\r\n    {c=\"Brown\", r=2}, {c=\"Orange\", r=2}, {c=\"Green\", r=2},\r\n    {c=\"Blue\", r=2}, {c=\"Pink\", r=2}\r\n}\r\n\r\n--Data table which is used for printToAll\r\nprintMessageStringGenerationData = {\r\n    endTurnMatch = {\"CLICKC_NAME\", \" ended their turn.\"},\r\n    endTurnMiss = {\"CLICKC_NAME\", \" ended \", \"CURRENTC\", \"'s turn.\"},\r\n    backTurnMatch = {\"CLICKC_NAME\", \" ended their turn. [i](Back)[/i]\"},\r\n    backTurnMiss = {\"CLICKC_NAME\", \" ended \", \"CURRENTC\", \"'s turn. [i](Back)[/i]\"},\r\n    activeColorMatch = {\"CLICKC_NAME\", \" ended their turn, passing to \", \"PLAYERC\", \".\"},\r\n    activeColorMiss = {\"CLICKC_NAME\", \" ended \", \"CURRENTC\", \"'s turn, passing to \", \"PLAYERC\", \".\"},\r\n}",
+      "LuaScriptState": "{\"ci\":0,\"cl\":[],\"dp\":[-4.76837101359706E-07,1,4]}",
+      "GUID": "8b66cc"
+    },
+    {
+      "Name": "Custom_Token",
+      "Transform": {
+        "posX": 2.16597652,
+        "posY": 1.20999992,
+        "posZ": -0.512450039,
+        "rotX": -1.13025169E-06,
+        "rotY": 180.010437,
+        "rotZ": 1.04112166E-06,
+        "scaleX": 0.628697336,
+        "scaleY": 1.0,
+        "scaleZ": 0.628697336
+      },
+      "Nickname": "Position Helper",
+      "Description": "1) Place over top of the character sheet\n2) In the notes (lower right of screen) a position will be printed. Hilight + copy it\n3) Paste that into the Character Sheet script for the given button type you want.",
+      "ColorDiffuse": {
+        "r": 1.0,
+        "g": 0.0,
+        "b": 0.0
+      },
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "IgnoreFoW": false,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": false,
+      "GridProjection": false,
+      "HideWhenFaceDown": false,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/868487510161795580/F4E8EBB1FB4F6E5B05FB40F7F6DD1D8B3FAD7F52/",
+        "ImageSecondaryURL": "",
+        "WidthScale": 0.0,
+        "CustomToken": {
+          "Thickness": 0.1,
+          "MergeDistancePixels": 14.77778,
+          "Stackable": false
+        }
+      },
+      "LuaScript": "--This script is for the little position finder utility item\r\n--It is not part of the character sheet at all\r\n--This is not meant to be edited (unless, you know, you want to)\r\n\r\ndecimal = 3\r\n\r\nfunction onLoad()\r\n    sheet = getObjectFromGUID(\"960882\")\r\n    Timer.create({\r\n        identifier=\"localPosFinder\", function_name=\"updateLocalPos\",\r\n        function_owner=self, delay=1, repetitions=0,\r\n    })\r\nend\r\n\r\nfunction updateLocalPos()\r\n    if sheet == nil then\r\n        Timer.destroy(\"localPosFinder\")\r\n        return\r\n    end\r\n\r\n    local pos = sheet.positionToLocal(self.getPosition())\r\n    local note = \"{\"\r\n    note = note .. round(-pos.x) .. \",\"\r\n    note = note .. round(pos.y)-0.05 .. \",\"\r\n    note = note .. round(pos.z) .. \"}\"\r\n    setNotes(note)\r\nend\r\n\r\n--Round number (num) to the Nth decimal (dec)\r\nfunction round(num)\r\n  local mult = 10^(decimal or 0)\r\n  return math.floor(num * mult + 0.5) / mult\r\nend",
+      "LuaScriptState": "",
+      "GUID": "937da9"
+    }
+  ],
+  "DecalPallet": [],
+  "TabStates": {
+    "0": {
+      "title": "Rules",
+      "body": "",
+      "color": "Grey",
+      "visibleColor": {
+        "r": 0.5,
+        "g": 0.5,
+        "b": 0.5
+      },
+      "id": 0
+    },
+    "1": {
+      "title": "White",
+      "body": "",
+      "color": "White",
+      "visibleColor": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "id": 1
+    },
+    "2": {
+      "title": "Brown",
+      "body": "",
+      "color": "Brown",
+      "visibleColor": {
+        "r": 0.443,
+        "g": 0.231,
+        "b": 0.09
+      },
+      "id": 2
+    },
+    "3": {
+      "title": "Red",
+      "body": "",
+      "color": "Red",
+      "visibleColor": {
+        "r": 0.856,
+        "g": 0.1,
+        "b": 0.094
+      },
+      "id": 3
+    },
+    "4": {
+      "title": "Orange",
+      "body": "",
+      "color": "Orange",
+      "visibleColor": {
+        "r": 0.956,
+        "g": 0.392,
+        "b": 0.113
+      },
+      "id": 4
+    },
+    "5": {
+      "title": "Yellow",
+      "body": "",
+      "color": "Yellow",
+      "visibleColor": {
+        "r": 0.905,
+        "g": 0.898,
+        "b": 0.172
+      },
+      "id": 5
+    },
+    "6": {
+      "title": "Green",
+      "body": "",
+      "color": "Green",
+      "visibleColor": {
+        "r": 0.192,
+        "g": 0.701,
+        "b": 0.168
+      },
+      "id": 6
+    },
+    "7": {
+      "title": "Blue",
+      "body": "",
+      "color": "Blue",
+      "visibleColor": {
+        "r": 0.118,
+        "g": 0.53,
+        "b": 1.0
+      },
+      "id": 7
+    },
+    "8": {
+      "title": "Teal",
+      "body": "",
+      "color": "Teal",
+      "visibleColor": {
+        "r": 0.129,
+        "g": 0.694,
+        "b": 0.607
+      },
+      "id": 8
+    },
+    "9": {
+      "title": "Purple",
+      "body": "",
+      "color": "Purple",
+      "visibleColor": {
+        "r": 0.627,
+        "g": 0.125,
+        "b": 0.941
+      },
+      "id": 9
+    },
+    "10": {
+      "title": "Pink",
+      "body": "",
+      "color": "Pink",
+      "visibleColor": {
+        "r": 0.96,
+        "g": 0.439,
+        "b": 0.807
+      },
+      "id": 10
+    },
+    "11": {
+      "title": "Black",
+      "body": "",
+      "color": "Black",
+      "visibleColor": {
+        "r": 0.25,
+        "g": 0.25,
+        "b": 0.25
+      },
+      "id": 11
+    }
+  },
+  "VersionNumber": "v12.0.4"
+}
