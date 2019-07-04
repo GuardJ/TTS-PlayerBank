@@ -1,0 +1,140 @@
+<!-- Welcome popup -->
+
+<Panel
+    id="Scoreboard"
+    height="400"
+    width="470"
+    color="rgba(0,0,0,0.5)"
+    rectAlignment="UpperRight"
+    offsetXY="-160 0"
+    hideAnimation="FadeOut"
+    showAnimation="FadeIn"
+    animationDuration="0.9"
+    allowDragging="true"
+    returnToOriginalPositionWhenReleased="false"
+    >
+    <InputField
+        id="Scoreboard-StartingMoneyInput"
+        text="$"
+        >
+    </InputField>
+    <Text
+        id="Scoreboard-text"
+        text="Test"
+        color="red"
+        outline="black"
+        outlineSize="2 2"
+        alignment="LowerCenter"
+        fontSize="50"
+        >
+    </Text>
+</Panel>
+<Panel
+    id="scoreboard-open-close"
+    height="20"
+    width="160"
+    color="rgba(0,0,0,1)"
+    rectAlignment="UpperRight"
+    offsetXY="-310 0"
+    hideAnimation="FadeOut"
+    animationDuration="0.5"
+    allowDragging="true"
+    returnToOriginalPositionWhenReleased="false"
+    >
+    <Text
+        text="SCOREBOARD"
+        color="white"
+        outline="black"
+        outlineSize="2 2"
+        alignment="Center"
+        fontSize="15"
+        >
+    </Text>
+    <Button
+        onClick="hideScoreboard"
+        height="20"
+        width="20"
+        color="rgba(0,0,0,0.7)"
+        text="&#8896;"
+        textColor="rgba(1,1,1,0.9)"
+        fontStyle="Bold"
+        fontSize="15"
+        rectAlignment="UpperRight"
+        >
+    </Button>
+    <Button
+        onClick="showScoreboard"
+        height="20"
+        width="20"
+        color="rgba(0,0,0,0.7)"
+        text="&#8897;"
+        textColor="rgba(1,1,1,0.9)"
+        fontStyle="Bold"
+        fontSize="15"
+        rectAlignment="UpperLeft"
+        >
+    </Button>
+</Panel>
+<Panel
+    id="test-panel"
+    height="20"
+    width="160"
+    color="rgba(0,0,0,1)"
+    rectAlignment="Center"
+    offsetXY="0 0"
+    hideAnimation="FadeOut"
+    animationDuration="0.5"
+    allowDragging="true"
+    returnToOriginalPositionWhenReleased="false"
+    >
+    <Button
+        onClick="testFunc"
+        height="20"
+        width="20"
+        color="rgba(0,0,0,0.7)"
+        text="&#8897;"
+        textColor="rgba(1,1,1,0.9)"
+        fontStyle="Bold"
+        fontSize="15"
+        rectAlignment="UpperLeft"
+        >
+    </Button>
+</Panel>
+<TableLayout class="noCellBackground" height="512" width="512" rectAlignment="MiddleCenter" offsetXY="0 0">
+<Row class="viewport">
+  <Cell dontUseTableCellBackground="true">
+      <TableLayout cellPadding="7" padding="20" cellSpacing="5" cellBackgroundImage="Sprites/Outline_Sharp" cellBackgroundColor="rgba(1,1,0,0.125)" autoCalculateHeight="1" columnWidths="180 0">
+        <Row id="test-row" preferredHeight="44">
+          <Cell>
+            <Text class="h3">Input Field1</Text>
+          </Cell>
+          <Cell>
+            <InputField />
+          </Cell>
+        </Row>
+      </TableLayout>
+  </Cell>
+</Row>
+</TableLayout>
+<TableLayout class="noCellBackground" height="512" width="512" rectAlignment="MiddleCenter" offsetXY="0 0">
+<Row class="viewport">
+  <Cell dontUseTableCellBackground="true">
+      <TableLayout cellPadding="7" padding="20" cellSpacing="5" cellBackgroundImage="Sprites/Outline_Sharp" cellBackgroundColor="rgba(1,1,0,0.125)" autoCalculateHeight="1" columnWidths="180 0">
+
+        <Row class="sectionHeaderRow">
+          <Cell columnSpan="2" dontUseTableCellBackground="1">
+            <Text class="h2" alignment="MiddleCenter">Input Elements</Text>
+          </Cell>
+        </Row>
+        <Row preferredHeight="44">
+          <Cell>
+            <Text class="h3">Input Field2</Text>
+          </Cell>
+          <Cell>
+            <InputField />
+          </Cell>
+        </Row>
+      </TableLayout>
+  </Cell>
+</Row>
+</TableLayout>

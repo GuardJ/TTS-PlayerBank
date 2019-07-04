@@ -1,0 +1,98 @@
+ function onLoad()
+
+end
+
+startingMoney = 3200
+bankP1 = startingMoney
+bankP2 = startingMoney
+
+function nothing()
+    object1 = getObjectFromGUID('341c7c')
+    object1.call('start')
+end
+
+function moneyPayPlayer(pA, pB)
+    --ref pA bank
+    --ref PB bank
+    --pA enters ammount to pay pB
+    --PA confirms payment
+    --calculate transaction
+    --update banks
+end
+
+function moneyRequest(pA, pB)
+    --ref pA bank
+    --ref PB bank
+    --pA enters ammount to request from pB
+    --pB confirms request payment
+    --calculate transaction
+    --update banks
+end
+
+function moneyPayAll(pA)
+    --ref pA bank
+    --ref all other players bank except pA
+    --pA enter ammount x1
+    --pA confirms payment X to each player / total payment
+    --calculate transaction
+    --update banks
+end
+
+function moneyBuy()
+    --ref pA bank
+    --??? ref item price ???
+    --or pA enter ammount to charge to pA bank
+    --calculate charge to pA bank
+    --update pA bank only
+end
+
+function moneyPayPool(a)
+    --ref pA bank
+    --??? ref item price ???
+    --or pA enter ammount to charge to pA bank
+    --calculate charge to pA bank
+    --update pA bank only
+end
+
+function moneyClaimPool()
+    --ref pA bank
+    --ref Pool bank
+    --pA confirms claim
+    --calculate transaction
+    --update banks
+end
+
+
+function testFunc()
+    UI.hide("test-row")
+end
+
+--Hides the Scoreboard
+function hideScoreboard()
+    UI.hide("Scoreboard")
+end
+
+function showScoreboard()
+    UI.show("Scoreboard")
+end
+
+--[=====[
+function announcePlayers()
+    --this uses the existing textTools GUID to get Object ref for each
+    textTools_GUID={"122fb8", "9421ac", "8cbee2", "ba516b",
+                    "bf78b6", "562124", "9c997c", "e80c0c"}
+    textTools = {}
+    for _, tool_GUID in pairs(textTools_GUID) do
+        textTools[_] = getObjectFromGUID(tool_GUID)
+    end
+
+--this gets only seated players into a list
+--then uses player ref to update texttool accordingly
+    players = getSeatedPlayers();
+    playerCount = #players
+    for _, playerReference in ipairs(players) do
+            textTools[_].setValue(Player[players[_]].steam_name)
+            textTools[_].TextTool.setFontColor(Player[players[_]].color)
+    end
+end
+--]=====]
