@@ -5,14 +5,23 @@ end
 function onload(saved_data)
     --self.createButton(test)
     do --Start Create Buttons
-        self.createButton(white)
-        self.createButton(red)
-        self.createButton(orange)
-        self.createButton(yellow)
-        self.createButton(green)
-        self.createButton(blue)
-        self.createButton(purple)
-        self.createButton(pink)
+        --button order here determines its index? starting at index 0
+        self.createButton(b_display)
+        self.createButton(b_miniDisplay)
+
+        self.createButton(b_PayPlayer)
+        self.createButton(b_Request)
+        self.createButton(b_PayAll)
+
+        self.createButton(b_white)
+        self.createButton(b_red)
+        self.createButton(b_orange)
+        self.createButton(b_yellow)
+        self.createButton(b_green)
+        self.createButton(b_blue)
+        self.createButton(b_purple)
+        self.createButton(b_pink)
+
         self.createButton(b_b0)
         self.createButton(b_b1)
         self.createButton(b_b2)
@@ -23,114 +32,272 @@ function onload(saved_data)
         self.createButton(b_b7)
         self.createButton(b_b8)
         self.createButton(b_b9)
+        self.createButton(b_reset)
+        self.createButton(b_colorReset)
     end --End Create Buttons
+
+    getStartingMoney()
 end
 
-pos1 = {0,0.1,0} --Origin For Color Buttons
+--[=====[
+    copy/paste for comment block
+--]=====]
+
+--this gets updated with global startingMoney upon this objects OnLoad
+--using getStartingMoney
+playerBankBalance = 0
+
+
+function getStartingMoney()
+    playerBankBalance = Global.call('getStartingMoney')
+    b_display.label = '$'..playerBankBalance
+    self.editButton(b_display) --updates index 0 button?
+end
+
+function none()
+    --placeholder
+end
+
+function moneyPayPlayer()
+    --ref PB bank
+    --getPlayerGUID()
+
+    --pA enters ammount to pay pB
+    --some input from keypad
+
+    --PA confirms payment
+end
+
+function clear()
+    newValue = ''
+    b_miniDisplay.label = newValue
+    self.editButton({index=1, label=newValue})
+    --operator = ''
+    --designatedPlayer = 0
+end
+
+function p(color, button)
+    buttonsColors = {b_white,b_red,b_orange,b_yellow,b_green,b_blue,b_purple,b_pink}
+    posOriginals = {}
+
+    colorsHide(button)
+end
+function cr()
+    colorsShow()
+end
+
+do --Color Buttons Relay
+    function white() p('White',b_white) end function red() p('Red',b_red) end function orange() p('Orange',b_orange) end function yellow() p('Yellow',b_yellow) end
+    function green() p('Green', b_green) end function blue() p('Blue',b_blue) end function purple() p('Purple',b_purple) end function pink() p('Pink',b_pink) end
+end --Color Buttons Relay
+
+do --NumPad Display Interaction
+    function b0() b('0') end function b1() b('1') end function b2() b('2') end
+    function b3() b('3') end function b4() b('4') end function b5() b('5') end
+    function b6() b('6') end function b7() b('7') end function b8() b('8') end
+    function b9() b('9') end
+    function br() entryZero() end
+
+    function b(n)
+        checkZero()
+        b_miniDisplay.label = b_miniDisplay.label .. n
+        newValue = b_miniDisplay.label
+        self.editButton({index=1, label=newValue})
+    end
+
+    function checkZero()
+        value = b_miniDisplay.label
+        if value == "$0" then
+            b_miniDisplay.label = "$"
+        end
+    end
+
+    function entryZero()
+        newValue = "$0"
+        b_miniDisplay.label = '$'
+        b_miniDisplay.click_function = 'clear'
+        self.editButton({index=1, label=newValue})
+    end
+end --NumPad Display Interaction
+
+function colorsShow()
+    for _, buttonColor in pairs(buttonsColors) do
+        buttonsColors[_].position = posOriginals[_]
+        x = posOriginals[_][1]
+        z = posOriginals[_][2]
+        y = posOriginals[_][3]
+        buttonsColors[_].rotation = {0,0,0}
+        self.editButton({index=_+1, position={x,z,y}, rotation={0,0,0}})
+    end
+
+    miniHide()
+end
+
+function colorsHide(button)
+    for _, buttonColor in pairs(buttonsColors) do
+        posCurrent = buttonsColors[_].position
+        posOriginals[_] = posCurrent
+        posHidden = {posCurrent[1], 0, posCurrent[3]}
+
+        buttonsColors[_].position = posHidden
+        buttonsColors[_].rotation = {180,0,0}
+        self.editButton({index=_+1, position=posHidden, rotation={180,0,0}})
+    end
+
+    b_miniDisplay.color = button.color
+    self.editButton({index=1,color=button.color})
+
+    miniShow()
+end
+
+function miniShow()
+    posMiniShow = {pos00[1]-0, pos00[2], pos00[3]+0.3}
+    rotMiniShow = {0,0,0}
+    b_miniDisplay.position = posMiniShow
+    self.editButton({index=1, position=posMiniShow, rotation=rotMiniShow})
+end
+function miniHide()
+    posMiniHide = {pos00[1]-0, 0, pos00[3]+0.3}
+    rotMiniHide = {180,0,0}
+    b_miniDisplay.position = posMiniHide
+    self.editButton({index=1, position=posMiniHide, rotation=rotMiniHide})
+end
+
+
+--Positions are {x,z,y}
+pos00 = {0,0.1,-1}   --Origin for DISPLAY
+do --Start Display Parameters
+    b_display = {
+        index=0, label='$---',
+        click_function='none', function_owner=self,
+        position={pos00[1]-0, pos00[2], pos00[3]-0},
+        width=700, height=100, font_size=100,
+        color={1,1,1}
+    }
+    b_miniDisplay = {
+        index=0, label='$0',
+        click_function='none', function_owner=self,
+        position={pos00[1]-0, pos00[2]-pos00[2], pos00[3]+0.3},
+        rotation={180,0,0},
+        width=300, height=100, font_size=70,
+        color={1,1,1}
+    }
+end --End Display Parameters
+
+pos08 = {1,0.1,-0.5} --Origin For Color Buttons
 do --Start Color Button Parameters
-    white = {
-        index=0, click_function='none', function_owner=self,
-        position={pos1[1]-0.3, pos1[2], pos1[3]-0.1}, width=100, height=100,
-        color={255,255,255}
+    b_white = {
+        click_function='white', function_owner=self,
+        position={pos08[1]-0.3, pos08[2], pos08[3]-0.1}, width=100, height=100,
+        color={1, 1, 1}
     }
 
-    red = {
-        index=0, click_function='none', function_owner=self,
-        position={pos1[1]-0.1, pos1[2], pos1[3]-0.1}, width=100, height=100,
+    b_red = {
+        click_function='red', function_owner=self,
+        position={pos08[1]-0.1, pos08[2], pos08[3]-0.1}, width=100, height=100,
         color={0.856, 0.1, 0.094}
     }
 
-    orange = {
-        index=0, click_function='none', function_owner=self,
-        position={pos1[1]+0.1, pos1[2], pos1[3]-0.1}, width=100, height=100,
+    b_orange = {
+        click_function='orange', function_owner=self,
+        position={pos08[1]+0.1, pos08[2], pos08[3]-0.1}, width=100, height=100,
         color={0.956, 0.392, 0.113}
     }
 
-    yellow = {
-        index=0, click_function='none', function_owner=self,
-        position={pos1[1]+0.3, pos1[2], pos1[3]-0.1}, width=100, height=100,
+    b_yellow = {
+        click_function='yellow', function_owner=self,
+        position={pos08[1]+0.3, pos08[2], pos08[3]-0.1}, width=100, height=100,
         color={0.905, 0.898, 0.172}
     }
     ---------------------------
-    green = {
-        index=0, click_function='none', function_owner=self,
-        position={pos1[1]-0.3, pos1[2], pos1[3]+0.1}, width=100, height=100,
+    b_green = {
+        click_function='green', function_owner=self,
+        position={pos08[1]-0.3, pos08[2], pos08[3]+0.1}, width=100, height=100,
         color={0.192, 0.701, 0.168}
     }
 
-    blue = {
-        index=0, click_function='none', function_owner=self,
-        position={pos1[1]-0.1, pos1[2], pos1[3]+0.1}, width=100, height=100,
+    b_blue = {
+        click_function='blue', function_owner=self,
+        position={pos08[1]-0.1, pos08[2], pos08[3]+0.1}, width=100, height=100,
         color={0.118, 0.53, 1}
     }
 
-    purple = {
-        index=0, click_function='none', function_owner=self,
-        position={pos1[1]+0.1, pos1[2], pos1[3]+0.1}, width=100, height=100,
+    b_purple = {
+        click_function='purple', function_owner=self,
+        position={pos08[1]+0.1, pos08[2], pos08[3]+0.1}, width=100, height=100,
         color={0.627, 0.125, 0.941}
     }
 
-    pink = {
-        index=0, click_function='none', function_owner=self,
-        position={pos1[1]+0.3, pos1[2], pos1[3]+0.1}, width=100, height=100,
+    b_pink = {
+        click_function='pink', function_owner=self,
+        position={pos08[1]+0.3, pos08[2], pos08[3]+0.1}, width=100, height=100,
         color={0.96, 0.439, 0.807}
     }
 end --End Color Button Parameters
 
-pos2 = {2,0.1 ,2} --Origin For NumPad Buttons
+
+pos09 = {0,0.1,0.3}  --Origin For NumPad Buttons
 do --Start NumPad Button Parameters
     b_b0 = {
-        label='0', click_function='none', function_owner=self,
+        label='0', click_function='b0', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ 0 ,pos2[2]+ 0 ,pos2[3]+ 0 }
+        position={pos09[1]+ 0 ,pos09[2]+ 0 ,pos09[3]+ 0 },
+        rotation={0,0,0}
     }
     b_b1 = {
-        label='1', click_function='none', function_owner=self,
+        label='1', click_function='b1', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ (-0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.2) }
+        position={pos09[1]+ (-0.2) ,pos09[2]+ 0 ,pos09[3]+ (-0.2) }
     }
     b_b2 = {
-        label='2', click_function='none', function_owner=self,
+        label='2', click_function='b2', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ 0 ,pos2[2]+ 0 ,pos2[3]+ (-0.2) }
+        position={pos09[1]+ 0 ,pos09[2]+ 0 ,pos09[3]+ (-0.2) }
     }
     b_b3 = {
-        label='3', click_function='none', function_owner=self,
+        label='3', click_function='b3', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ (0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.2) }
+        position={pos09[1]+ (0.2) ,pos09[2]+ 0 ,pos09[3]+ (-0.2) }
     }
     b_b4 = {
-        label='4', click_function='none', function_owner=self,
+        label='4', click_function='b4', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ (-0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.4) }
+        position={pos09[1]+ (-0.2) ,pos09[2]+ 0 ,pos09[3]+ (-0.4) }
     }
     b_b5 = {
-        label='5', click_function='none', function_owner=self,
+
+        label='5', click_function='b5', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ 0 ,pos2[2]+ 0 ,pos2[3]+ (-0.4) }
+        position={pos09[1]+ 0 ,pos09[2]+ 0 ,pos09[3]+ (-0.4) }
     }
     b_b6 = {
-        label='6', click_function='none', function_owner=self,
+        label='6', click_function='b6', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ (0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.4) }
+        position={pos09[1]+ (0.2) ,pos09[2]+ 0 ,pos09[3]+ (-0.4) }
     }
     b_b7 = {
-        label='7', click_function='none', function_owner=self,
+        label='7', click_function='b7', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ (-0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.6) }
+        position={pos09[1]+ (-0.2) ,pos09[2]+ 0 ,pos09[3]+ (-0.6) }
     }
     b_b8 = {
-        label='8', click_function='none', function_owner=self,
+        label='8', click_function='b8', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ 0 ,pos2[2]+ 0 ,pos2[3]+ (-0.6) }
+        position={pos09[1]+ 0 ,pos09[2]+ 0 ,pos09[3]+ (-0.6) }
     }
     b_b9 = {
-        label='9', click_function='none', function_owner=self,
+        label='9', click_function='b9', function_owner=self,
         width=100, height=100, font_size=60,
-        position={pos2[1]+ (0.2) ,pos2[2]+ 0 ,pos2[3]+ (-0.6) }
+        position={pos09[1]+ (0.2) ,pos09[2]+ 0 ,pos09[3]+ (-0.6) }
+    }
+    b_reset = {
+        label='$0', click_function='br', function_owner=self,
+        width=100, height=100, font_size=60,
+        position={pos09[1]+ (0.2) ,pos09[2]+ 0 ,pos09[3]+ (0) }
+    }
+    b_colorReset = {
+        label='C', click_function='cr', function_owner=self,
+        width=100, height=100, font_size=60,
+        position={pos09[1]+ (-0.2) ,pos09[2]+ 0 ,pos09[3]+ (0) }
     }
 end --End NumPad Button Parameters
-
-
-function none()
-end

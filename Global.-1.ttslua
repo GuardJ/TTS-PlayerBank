@@ -1,10 +1,16 @@
- function onLoad()
+function onLoad()
 
 end
 
 startingMoney = 3200
 bankP1 = startingMoney
 bankP2 = startingMoney
+
+broadcastToAll(playerBankBalance)
+
+function getStartingMoney()
+    return startingMoney
+end
 
 function nothing()
     object1 = getObjectFromGUID('341c7c')
@@ -86,9 +92,9 @@ function announcePlayers()
         textTools[_] = getObjectFromGUID(tool_GUID)
     end
 
---this gets only seated players into a list
---then uses player ref to update texttool accordingly
-    players = getSeatedPlayers();
+    --this gets only seated players into a list
+    --then uses player ref to update texttool accordingly
+    players = getSeatedPlayers()
     playerCount = #players
     for _, playerReference in ipairs(players) do
             textTools[_].setValue(Player[players[_]].steam_name)
