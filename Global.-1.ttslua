@@ -1,20 +1,13 @@
 function onLoad()
-
+hideScoreboard()
 end
 
 startingMoney = 3200
 bankP1 = startingMoney
 bankP2 = startingMoney
 
-broadcastToAll(playerBankBalance)
-
-function getStartingMoney()
+function get_StartingMoney()
     return startingMoney
-end
-
-function nothing()
-    object1 = getObjectFromGUID('341c7c')
-    object1.call('start')
 end
 
 function moneyPayPlayer(pA, pB)

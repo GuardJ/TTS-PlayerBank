@@ -55,7 +55,7 @@ function onload()
     end --End Global VAriables
 
     get_StartingMoney()
-    --set_pOwner('Orange') --for debug
+    set_pOwner('Blue') --for debug
 end
 
 --players cannot pay themselves
